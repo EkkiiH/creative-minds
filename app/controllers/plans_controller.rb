@@ -2,7 +2,7 @@ class PlansController < ApplicationController
   def index
     @plans = Plan.all
     @plans = policy_scope(Plan)
-    authorize @plans
+    # authorize @plans
   end
 
   def show
