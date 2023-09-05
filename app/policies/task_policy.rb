@@ -5,7 +5,7 @@ class TaskPolicy < ApplicationPolicy
     #   scope.all
     # end
     def resolve
-      scope.where(user: user)
+      scope.joins(:plan).where(plan: { user: user })
     end
   end
 
