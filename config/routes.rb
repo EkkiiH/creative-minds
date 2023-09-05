@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   devise_for :users
-  # root to: "pages#home"
+  root to: "pages#home"
 
   # authenticated :user do
   #   root to: "users#show"
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :plans do
-    resources :tasks
+    resources :tasks, only: [:new, :create]
   end
+  resources :tasks, only: [:show, :index]
 end
