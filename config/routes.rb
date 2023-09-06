@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :users
   resources :plans do
     resources :tasks, only: %i[new create]
+    member do
+      get "plan_tasks"
+    end
   end
-  resources :tasks, only: %i[show index]
+  resources :tasks, only: %i[index edit update destroy]
 end

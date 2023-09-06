@@ -1,5 +1,6 @@
-<%= simple_form_for @task do |f| %>
+<%= simple_form_for([@plan, @task]) do |f| %>
   <%= f.input :activity, label: false, placeholder: "What's the task" %>
+  <%= f.input :priority %>
   <%= f.input :due_date, label: false, placeholder: "When is it due?" %>
   <div>
     <%= link_to 'Cancel', authenticated_root_path %>
