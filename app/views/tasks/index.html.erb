@@ -1,6 +1,9 @@
 <h1>my tasks to do</h1>
-
-<p><% @tasks.each do |task| %>
-
-   <% end %>
-</p>
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <%= task.activity %>
+      <%= link_to "delete", task_path(task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"  }, class: 'btn' %>
+    </li>
+  <% end %>
+</ul>
