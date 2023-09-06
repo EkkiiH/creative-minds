@@ -3,13 +3,18 @@ class PlansController < ApplicationController
     @plans = Plan.all
     @plans = policy_scope(Plan)
     # authorize @plans
+    raise
   end
 
   def show
     @plan = Plan.find(params[:id])
+
     # @plan.user = current_user
     authorize @plan
-    # raise
+  end
+
+  def new
+    @plan = Plan.new
   end
 
   def plan_params
