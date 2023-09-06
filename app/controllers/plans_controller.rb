@@ -25,6 +25,12 @@ class PlansController < ApplicationController
     end
   end
 
+  def plan_tasks
+    @plan = Plan.find(params[:id])
+    authorize @plan
+    @tasks = @plan.tasks
+  end
+
   def edit
     @plan = Plan.find(params[:id])
     authorize @plan

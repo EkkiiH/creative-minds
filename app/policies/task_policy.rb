@@ -9,13 +9,27 @@ class TaskPolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    # true
+  # def index?
+  #   # true
+  #   record.user == user
+  # end
+  def new?
+    true
+  end
+
+  def create?
     record.user == user
   end
 
-  def show?
-    # true
+  def edit?
+    record.user == user
+  end
+
+  def update?
+    record.user == user
+  end
+
+  def destroy?
     record.user == user
   end
 end

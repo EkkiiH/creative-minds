@@ -1,0 +1,9 @@
+<h1>My plan tasks are:</h1>
+
+<p><%= @plan.name %></p>
+<p><%= @plan.description %></p>
+<ul>
+  <% @plan.tasks.each do |task| %>
+    <li><%= task.activity %></li>
+  <% end %>
+</ul>

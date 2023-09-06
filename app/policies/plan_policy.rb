@@ -30,4 +30,8 @@ class PlanPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def plan_tasks?
+    record.user == user
+  end
+
 end
