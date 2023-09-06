@@ -12,7 +12,7 @@
             <p>
               <%= task.activity %>
               <%= task.due_date %>
-              <%= link_to edit_plan_path(plan), class: 'btn text-warning px-3' do %>
+              <%= link_to edit_plan_path(task), class: 'btn text-warning px-3' do %>
                 <i class="fa-solid fa-rotate"></i>
               <% end %>
               <%= link_to task_path(task),

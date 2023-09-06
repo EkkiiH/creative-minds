@@ -1,9 +1,24 @@
-<h1>my tasks to do</h1>
-<ul>
-  <% @tasks.each do |task| %>
-    <li>
-      <%= task.activity %>
-      <%= link_to "delete", task_path(task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"  }, class: 'btn' %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>View all of my tasks</h1>
+
+  <div class="m-3">
+    <% @tasks.each do |task| %>
+      <div class="card m-3 p-3">
+        <h3><%= task.activity %></h3>
+        <p class="fw-light">due on <%= task.due_date %></p>
+
+          <div class="m-3">
+            <%= link_to edit_task_path(task),
+                        class: 'btn text-warning px-3' do %>
+              <i class="fa-solid fa-rotate"></i>
+            <% end %>
+            <%= link_to task_path(task),
+                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                        class: 'btn text-danger px-3' do %>
+              <i class="fa-solid fa-xmark"></i>
+            <% end %>
+          </div>
+      </div class="card">
+    <% end %>
+  </div>
+</div>
