@@ -12,10 +12,13 @@
             <p>
               <%= task.activity %>
               <%= task.due_date %>
+              <%= link_to edit_plan_path(plan), class: 'btn text-warning px-3' do %>
+                <i class="fa-solid fa-rotate"></i>
+              <% end %>
               <%= link_to task_path(task),
                         data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                        class: 'btn text-white btn-danger rounded-pill px-3' do %>
-              <i class="fa-solid fa-xmark"></i>
+                        class: 'btn text-danger px-3' do %>
+                <i class="fa-solid fa-xmark"></i>
               <% end %>
             </p>
           <% end %>
