@@ -4,7 +4,10 @@
   <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
   <%= f.input :end_date, as: :string, input_html: { id: "end_date"} %>
   <div>
-    <%= link_to 'Cancel', authenticated_root_path %>
+    <%= link_to 'Cancel', url_for(:back) %>
     <%= f.submit value: 'Add a plan' %>
   </div>
 <% end %>
+
+
+
