@@ -4,6 +4,6 @@ class UsersController < ApplicationController
     @user = current_user
     authorize @user
     @plans = Plan.all
-    @taks = Task.all
+    @tasks = Task.all
   end
 end
