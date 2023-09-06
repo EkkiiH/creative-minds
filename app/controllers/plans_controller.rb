@@ -15,4 +15,13 @@ class PlansController < ApplicationController
   def plan_params
     params.require(:plan).permit(:name, :description, :start_date, :end_date)
   end
+
+  def new
+    @plan = Plan.new
+    # authorize @plan
+  end
+
+  def edit
+    authorize @plan
+  end
 end
