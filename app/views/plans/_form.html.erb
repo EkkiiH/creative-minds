@@ -1,8 +1,8 @@
 <%= simple_form_for @plan do |f| %>
   <%= f.input :name, label: false, placeholder: "Write the name of your plan..." %>
   <%= f.input :description, label: false, placeholder: "Describe your plan...", :input_html => { class: 'test', :cols => 5, :rows => 6 } %>
-  <%= f.input :start_date, label: false, placeholder: "When is the start day?" %>
-  <%= f.input :end_date, label: false, placeholder: "When is the end day?" %>
+  <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :end_date, as: :string, input_html: { id: "end_date"} %>
   <div>
     <%= link_to 'Cancel', authenticated_root_path %>
     <%= f.submit value: 'Add a plan' %>
