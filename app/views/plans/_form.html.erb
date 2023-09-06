@@ -4,7 +4,10 @@
   <%= f.input :start_date, label: false, placeholder: "When is the start day?" %>
   <%= f.input :end_date, label: false, placeholder: "When is the end day?" %>
   <div>
-    <%= link_to 'Cancel', authenticated_root_path %>
+    <%= link_to 'Cancel', url_for(:back) %>
     <%= f.submit value: 'Add a plan' %>
   </div>
 <% end %>
+
+
+
