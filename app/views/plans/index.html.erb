@@ -9,6 +9,7 @@
           <li><%= task.activity %></li>
         <% end %>
       </ul>
+            <%= link_to "delete", plan_path(plan), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"  }, class: 'btn' %>
     </li>
   <% end %>
 </ul>

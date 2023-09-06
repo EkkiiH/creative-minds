@@ -6,13 +6,28 @@ class PlanPolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    # true
+  def show?
     record.user == user
   end
 
-  def show?
-    # true
+  def new?
+    true
+  end
+
+  def create?
     record.user == user
   end
+
+  def edit?
+    record.user == user
+  end
+
+  def update?
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
+  end
+
 end
