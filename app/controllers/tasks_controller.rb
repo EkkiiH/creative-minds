@@ -16,6 +16,7 @@ class TasksController < ApplicationController
 
   # GET /plans/:plan_id/tasks/new
   def new
+    @task = task.new
     # find plan
     # initialize new task
   end

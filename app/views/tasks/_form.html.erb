@@ -1,0 +1,8 @@
+<%= simple_form_for @task do |f| %>
+  <%= f.input :activity, label: false, placeholder: "What's the task" %>
+  <%= f.input :due_date, label: false, placeholder: "When is it due?" %>
+  <div>
+    <%= link_to 'Cancel', authenticated_root_path %>
+    <%= f.submit value: 'Add a task' %>
+  </div>
+<% end %>
