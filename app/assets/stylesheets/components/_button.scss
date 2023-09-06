@@ -1,0 +1,20 @@
+.btn-blue{
+display: inline-block;
+outline: 0;
+border: 0;
+cursor: pointer;
+font-weight: 500;
+color: #fff;
+font-size: 14px;
+height: 38px;
+padding: 8px 24px;
+border-radius: 20px;
+background-image: linear-gradient(180deg,#0AC6FA,#3c4fe0);
+transition: all .2s ease-out;
+text-decoration: none;
+}
+
+.btn-blue:hover {
+  transition: all .1s ease;
+  background-image: linear-gradient(to right, #3c4fe0,#0AC6FA);
+}
