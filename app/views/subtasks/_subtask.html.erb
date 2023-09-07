@@ -1,0 +1,26 @@
+<%= turbo_frame_tag dom_id(subtask), target: :_top, class: "ms-5 d-flex flex-row" do %>
+  <div class="ms-2 tasks d-flex align-items-center <%= 'done' if subtask.completion %>">
+    <div class="color-status me-3"></div>
+    <bdi>
+      <%= subtask.activity %>
+      <p class='mb-0'>
+        <small>Due <%= subtask.due_date.try(:strftime, "%d/%m/%Y") %></small>
+      </p>
+    </bdi>
+    <div class="ms-3 d-flex align-items-center">
+      <%= link_to toggle_complete_subtask_path(subtask),
+                  data: { turbo_method: :patch, turbo_frame: dom_id(subtask) },
+                  class: 'btn font-skyblue px-2' do %>
+        <i class="fa-regular fa-circle-check"></i>
+      <% end %>
+
+      <%= link_to edit_subtask_path(subtask), class: 'btn text-warning px-2' do %>
+        <i class="fa-solid fa-pen-to-square"></i>
+      <% end %>
+      <%= link_to subtask_path(subtask), class: 'btn text-danger px-2',
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+        <i class="fa-solid fa-xmark"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,7 +1,5 @@
-class Task < ApplicationRecord
-  belongs_to :plan
-  has_one :user, through: :plan
-  has_many :subtasks, dependent: :destroy
+class Subtask < ApplicationRecord
+  belongs_to :task
   validates :activity, length: { maximum: 60, too_long: 'A maximum of 60 characters is allowed' }
   validates :activity, uniqueness: true
   validates :activity, presence: true

@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :plans
   has_many :tasks, through: :plans
+  has_many :subtasks, through: :plans
 end
