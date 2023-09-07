@@ -3,10 +3,14 @@
 
   <div class="m-3">
         <%= link_to new_without_plan_path,
-                            class: 'btn text-success px-3' do %>
-                  <i class="fa-solid fa-plus"></i>
-                <% end %>
-        <% @tasks.each do |task| %>
+            class: 'btn text-success px-3' do %>
+            <i class="fa-solid fa-plus"></i>
+        <% end %>
+        <p>Sort by:
+          <%= link_to "Due Date", tasks_path(order: 'due_date') %>,
+          <%= link_to "Priority", tasks_path(order: 'priority') %>
+      </p>
+      <% @tasks.each do |task| %>
       <div class="card m-3 p-3">
         <h3><%= task.activity %></h3>
         <p class="fw-light">due on <%= task.due_date %></p>

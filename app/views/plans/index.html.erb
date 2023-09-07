@@ -3,26 +3,6 @@
 
   <div class="m-3">
     <% @plans.each do |plan| %>
-<<<<<<< HEAD
-      <div class="card m-3 p-3">
-        <h3><%= plan.name %></h3>
-        <p><%= plan.description %></p>
-        <p class="fw-light">planned from <%= plan.start_date %> to <%= plan.end_date %></p>
-        <div class="card-body">
-          <% plan.tasks.each do |task|  %>
-            <p>
-              <%= task.activity %>
-              <%= task.due_date %>
-              <%= link_to edit_plan_path(task), class: 'btn text-warning px-3' do %>
-                <i class="fa-solid fa-rotate"></i>
-              <% end %>
-              <%= link_to task_path(task),
-                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                        class: 'btn text-danger px-3' do %>
-                <i class="fa-solid fa-xmark"></i>
-              <% end %>
-            </p>
-=======
       <div class=" m-3 p-3">
           <%= link_to(plan_path(plan), class:'text-decoration-none text-dark')  do  %>
             <h3><%= plan.name %>
@@ -35,7 +15,6 @@
                   <i class="fa-solid fa-xmark"></i>
                 <% end %>
             </h3>
->>>>>>> master
           <% end %>
           <p><%= plan.description %></p>
           <p class="fw-light">planned from <%= plan.start_date %> to <%= plan.end_date %></p>
