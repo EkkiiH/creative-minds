@@ -127,14 +127,9 @@ task2 = Task.new(
   due_date: Time.strptime('10/01/2024 09:00', '%m/%d/%Y %H:%M'),
   plan: plan1
 )
-<<<<<<< HEAD
-#plan2 Create a website
-Task.create!(
-=======
 task2.save!
 
 task3 = Task.new(
->>>>>>> master
   activity: "Buy a host and domain",
   completion: true,
   priority: 1,
@@ -150,28 +145,18 @@ task4 = Task.new(
   due_date: Time.strptime('11/15/2023 09:00', '%m/%d/%Y %H:%M'),
   plan: plan2
 )
-<<<<<<< HEAD
-#plan3 Make a logo
-Task.create!(
-=======
 task4.save!
 
 task5 = Task.new(
->>>>>>> master
   activity: "gather some inspiration",
   completion: false,
   priority: 0,
   due_date: "",
   plan: plan3
 )
-<<<<<<< HEAD
-#plan4 Having a interior garden
-Task.create!(
-=======
 task5.save!
 
 task6 = Task.new(
->>>>>>> master
   activity: "buy some plants",
   completion: false,
   priority: 2,
@@ -187,14 +172,9 @@ task7 = Task.new(
   due_date: Time.strptime('09/20/2023 14:00', '%m/%d/%Y %H:%M'),
   plan: plan4
 )
-<<<<<<< HEAD
-#plan5 Write a novel
-Task.create!(
-=======
 task7.save!
 
 task8 = Task.new(
->>>>>>> master
   activity: "make a schema of the content",
   completion: true,
   priority: 0,
@@ -219,10 +199,6 @@ task10 = Task.new(
   due_date: "",
   plan: plan5
 )
-<<<<<<< HEAD
-puts 'Succesful creation of 10 tasks!'
-
-=======
 task10.save!
 # added more tasks starting from this line....
 
@@ -511,4 +487,3 @@ Subtask.create!(
 )
 
 puts 'Succesful creation of 22 subtasks!'
->>>>>>> master
