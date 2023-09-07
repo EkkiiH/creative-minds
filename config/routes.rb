@@ -14,8 +14,10 @@ Rails.application.routes.draw do
     end
   end
   resources :tasks, only: %i[index edit update destroy] do
+    resources :subtasks, only: %i[new create]
     member do
       patch :toggle_complete
     end
   end
+  resources :subtasks, only: %i[edit update destroy]
 end
