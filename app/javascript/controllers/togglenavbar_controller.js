@@ -2,13 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="togglenavbar"
 export default class extends Controller {
-  static targets = ["navbar"]
+  static targets = ["sidenavbar"]
   connect() {
     console.log('test');
   }
   toggleNav() {
     console.log('hello');
-    this.navbarTarget.classList.toggle("inactive");
+    this.sidenavbarTarget.classList.toggle("inactive");
   }
 }
 

@@ -1,40 +1,41 @@
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+// @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 .openbtn {
-  font-size: 20px;
+  font-size: 1.4rem;
   cursor: pointer;
-  background-color: #0AC6FA;
-  color: white;
-  padding: 10px 15px;
+  background-color: $turquoise;
+  color: $white;
+  padding: 0.8rem 1.2rem;
   border: none;
+  z-index: 1;
 }
 
 .openbtn:hover {
-  background-color: #92fa9c;
+  background-color: $sky-blue;
 }
 .side-navbar h3{
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    margin: 15px 0;
+    text-shadow: 0 0 3px rgba(0,0,0,0.6);
+    margin: 2rem 0;
 }
 
 #sidebar{
   p {
-    font-family: 'Poppins', sans-serif;
+    // font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
     color: #FFF;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    text-shadow: 0 0 3px rgba(0,0,0,0.6);
     text-decoration: none;
-}
-.list-unstyled a,
-a:hover,
-a:focus {
+  }
+  .list-unstyled a,
+  a:hover,
+  a:focus {
     color: #fff;
     text-decoration: none;
     transition: all 0.3s;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-}
+    text-shadow: 0 0 3px rgba(0,0,0,0.6);
+  }
 }
 
 .inactive{
@@ -43,7 +44,7 @@ a:focus {
 }
 
 .navbar {
-    padding: 15px 10px;
+    padding: 1.2rem 0.8rem;
     background: #fff;
     border: none;
     border-radius: 0;
