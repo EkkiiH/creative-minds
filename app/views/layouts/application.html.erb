@@ -13,17 +13,20 @@
   </head>
 
   <body>
-<%# <% if current_user %> <%#%>
+<% if current_user %>
 
-  <%= render "shared/navbar" %>
+  <%= render 'shared/side_navbar' %>
 
   <%= render "shared/flashes" %>
-<%# <% else %> <%#%>
+
+  <% else %>
   <!-- navbar for Pages -->
-<%# <% end %><%# %>
-    <%= yield %>
+  <%= render "shared/navbar" %>
 
+  <% end %>
 
-
+<div class="wrapper">
+  <%= yield %>
+</div>
   </body>
 </html>
