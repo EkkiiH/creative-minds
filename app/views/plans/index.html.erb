@@ -1,60 +1,64 @@
 <div class="container my-5">
   <h1>My view on all my plans</h1>
 
+<%# **************************************** %>
+
   <div class="m-3">
-    <% @plans.each do |plan| %>
-      <div class=" m-3 p-3">
-          <%= link_to(plan_path(plan), class:'text-decoration-none text-dark')  do  %>
-            <h3><%= plan.name %>
-                <%= link_to edit_plan_path(plan), class: 'btn text-warning px-2' do %>
-                  <i class="fa-solid fa-rotate"></i>
+    <div class="m-3">
+      <%= link_to new_plan_path(@plan), class: 'btn font-turquoise px-2' do %>
+        <i class="fa-solid fa-plus"></i>&nbsp add plan
+      <% end %>
+    </div>
+
+
+    <%# ******************* START Plans ******************* %>
+
+    <div>
+      <% @plans.each do |plan| %>
+        <div class="m-3 p-3">
+        <%# ***************** START HEAD Plans ***************** %>
+          <div>
+            <h3>
+              <%= link_to(plan_path(plan), class:'text-decoration-none text-dark')  do  %>
+                <%= plan.name %>
+                <%= link_to edit_plan_path(plan), class: 'btn text-warning' do %>
+                    <i class="fa-solid fa-pen-to-square"></i>
                 <% end %>
                 <%= link_to plan_path(plan),
-                            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                            class: 'btn text-danger px-2' do %>
-                  <i class="fa-solid fa-xmark"></i>
+                              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                              class: 'btn text-danger px-2' do %>
+                    <i class="fa-solid fa-xmark"></i>
                 <% end %>
+              <% end %>
             </h3>
-          <% end %>
-          <p><%= plan.description %></p>
-          <p class="fw-light">planned from <%= plan.start_date %> to <%= plan.end_date %></p>
-            <div class="">
-            </div>
+            <p><%= plan.description %></p>
+            <p class="fw-light"><small>Starting <%= plan.start_date.try(:strftime, "%d/%m/%Y") %> to <%= plan.end_date.try(:strftime, "%d/%m/%Y") %></small></p>
+          </div>
+          <%# ****************** END HEAD Plans ****************** %>
+          <%# ******************* START Tasks ******************* %>
           <div class="card-body">
             <% plan.tasks.each do |task|  %>
-              <p class="ms-5 d-flex flex-row">
-                <p class="ms-5  tasks">
-                  <bdi>
-                    <%= task.activity %>
-                    <%= task.due_date %>
-                  </bdi>
-                  <%= link_to edit_task_path(task), class: 'btn text-warning px-2' do %>
-                    <i class="fa-solid fa-rotate"></i>
-                  <% end %>
-                  <%= link_to task_path(task), class: 'btn text-danger px-2',
-                              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-                    <i class="fa-solid fa-xmark"></i>
-                  <% end %>
-                </p>
-              </p>
+               <%= render 'tasks/task', task: task %>
             <% end %>
-            <%= link_to new_plan_task_path(plan),class: 'btn font-turquoise px-2' do %>
-              <i class="fa-solid fa-plus">&nbsp new task</i>
+            <%= link_to new_plan_task_path(plan),class: 'btn font-turquoise px-2 ms-3' do %>
+              <i class="fa-solid fa-plus"></i>&nbsp new task
             <% end %>
           </div>
-
-      </div class="card">
-    <% end %>
-    <div class="m-3">
-      <%= link_to new_plan_path(@plan),
-                    class: 'btn font-turquoise px-2' do %>
-          <i class="fa-solid fa-plus">&nbsp add plan</i>
-        <% end %>
+          <%# ******************** END Tasks ******************** %>
+        </div>
+      <% end %>
     </div>
+    <%# ******************** END Plans ******************** %>
   </div>
+
+<%# **************************************** %>
+
   <div class="m-2">
-  <%= link_to root_path, class: 'btn font-skyblue px-2' do %>
-    <i class="fa-solid fa-chevron-left">&nbsp home</i>
-  <% end %>
+    <%= link_to root_path, class: 'btn font-skyblue px-2' do %>
+      <i class="fa-solid fa-chevron-left"></i>&nbsp home
+    <% end %>
   </div>
+
+
+
 </div>
