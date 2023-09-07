@@ -13,5 +13,9 @@ Rails.application.routes.draw do
       get "plan_tasks"
     end
   end
-  resources :tasks, only: %i[index edit update destroy]
+  resources :tasks, only: %i[index edit update destroy] do
+    member do
+      patch :toggle_complete
+    end
+  end
 end

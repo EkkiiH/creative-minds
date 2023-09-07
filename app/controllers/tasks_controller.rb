@@ -64,6 +64,14 @@ class TasksController < ApplicationController
     redirect_to task_path
   end
 
+  # PATCH /tasks/:id/toggle_complete
+  def toggle_complete
+    @task = Task.find(params[:id])
+    authorize @task, :update?
+    @task.update(completion: !@task.completion)
+    redirect_to plans_path
+  end
+
   def task_params
     params.require(:task).permit(:activity, :completion, :priority, :due_date)
   end
