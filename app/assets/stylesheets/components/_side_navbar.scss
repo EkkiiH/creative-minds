@@ -4,7 +4,7 @@ body {
     background: #fafafa;
 }
 
-h3{
+.side-navbar h3{
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     margin: 15px 0;
 }
@@ -148,10 +148,9 @@ a.article:hover {
 ----------------------------------------------------- */
 
 #content {
-    width: 100%;
-    padding: 20px;
-    min-height: 100vh;
-    transition: all 0.3s;
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
 }
 
 /* ---------------------------------------------------
