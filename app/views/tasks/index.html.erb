@@ -1,8 +1,12 @@
 <div class="container">
-  <h1>View all of my tasks</h1>
+  <h1>View of all my tasks</h1>
 
   <div class="m-3">
-    <% @tasks.each do |task| %>
+        <%= link_to new_without_plan_path,
+                            class: 'btn text-success px-3' do %>
+                  <i class="fa-solid fa-plus"></i>
+                <% end %>
+        <% @tasks.each do |task| %>
       <div class="card m-3 p-3">
         <h3><%= task.activity %></h3>
         <p class="fw-light">due on <%= task.due_date %></p>
