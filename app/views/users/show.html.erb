@@ -1,3 +1,46 @@
-<h1>My USER landing to app page</h1>
+<div class="container my-5 d-flex">
+  <div class="m-3 ">
+    <h1 class="mb-5">Hello, <%= @user.email %></h1>
 
-<%=  %>
+  <%# ********  start add an idea/plan ******** %>
+    <div class="m-5">
+      <h3>What would you like to do ?</h3>
+      <div class="m-3 font-turquoise p-3">
+        <i class="fa-solid fa-plus">&nbsp</i>
+        <input type="text" name="" id="" style="width: 20rem;">
+      </div>
+    </div>
+  <%# *********  end add an idea/plan ********* %>
+
+  <%# *******  start last plans created ******* %>
+    <div class="m-3 d-flex flex-wrap">
+      <% @plans[0..2].each do |plan| %>
+        <div class="m-3">
+          <%= link_to(plan_path(plan), class:'text-decoration-none text-dark') do %>
+            <h5 class="fw-bold"><%= plan.name %></h5>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+      <%= link_to plans_path, class: 'btn font-skyblue px-2' do %>
+        <i class="fa-solid fa-chevron-right">&nbsp see more</i>
+      <% end %>
+  <%# ********  end last plans created ******** %>
+  </div>
+
+
+  <%# ************  start todo list *********** %>
+  <div class="m-3">
+    <% @tasks[0..9].each do |task| %>
+      <p class="ms-5 d-flex flex-row">
+        <p class="ms-5  tasks">
+          <%= task.activity %>
+        </p>
+      </p>
+    <% end %>
+    <%= link_to tasks_path, class: 'btn font-skyblue px-2' do %>
+      <i class="fa-solid fa-chevron-right">&nbsp see more</i>
+    <% end %>
+  </div>
+  <%# ************  end todo list  ************ %>
+</div>
