@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   include Pundit::Authorization
+  before_action :set_user_plans, unless: :devise_controller?
 
   # Pundit: allow-list approach
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -17,5 +18,9 @@ class ApplicationController < ActionController::Base
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+  end
+
+  def set_user_plans
+    @plans = current_user&.plans
   end
 end

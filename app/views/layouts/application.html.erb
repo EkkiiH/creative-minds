@@ -14,13 +14,14 @@
 
   <body>
 <% if current_user %>
-
+  <%= render 'shared/navbar' %>
   <%= render 'shared/side_navbar' %>
 
   <%= render "shared/flashes" %>
 
   <% else %>
   <!-- navbar for Pages -->
+  <%#= if request.referrer == "/" %>
   <%= render "shared/navbar" %>
 
   <% end %>

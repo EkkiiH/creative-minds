@@ -1,47 +1,41 @@
     <div class="wrapper" data-controller="togglenavbar">
         <!-- Sidebar  -->
-        <nav id="sidebar" data-togglenavbar-target="navbar">
+        <nav id="sidebar" data-togglenavbar-target="sidenavbar">
             <div class="sidebar-header">
-                <h3 class="side-navbar"></i> Board</h3>
+              <%= link_to authenticated_root_path, class:"side-navbar d-flex flex-row align-items-start text-decoration-none text-white" do %>
+              <h3><i class="fa-solid fa-house"></i>&nbsp Board</h3>
+              <% end %>
             </div>
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="#">Canvas</a>
+                  <%= link_to 'Idea canvas', '/' %>
                 </li>
                 <li>
-                    <a href="#">To-do list</a>
+                  <%= link_to 'To-do list', tasks_path %>
                 </li>
-                <li>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Your Plan</a>
+                    <a href="#homeSubmenu" class="dropdown-toggle" data-toggle="collapse" aria-expanded="false">Plans</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Plan A</a>
-                        </li>
-                        <li>
-                            <a href="#">Plan B</a>
-                        </li>
-                        <li>
-                            <a href="#">Plan C</a>
-                        </li>
-                        <li>
-                            <a href="#">Plan D</a>
-                        </li>
+                    <li class= 'sidebar-plan'><%= link_to 'Plan list', plans_path %></li>
+                    <% @plans.each do |plan| %>
+                      <li><%= link_to plan.name, plan_path(plan) %></li>
+                    <% end %>
                     </ul>
                 </li>
                 <li>
-            <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+            <%# <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="#" class="download">Download source</a>
                 </li>
                 <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                    <a href="#" class="article">Back to article</a>
                 </li>
-            </ul>
+            </ul> %>
         </nav>
         <div id="main">
-          <button class="openbtn" data-action="click->togglenavbar#toggleNav">&#9776</button>
+          <button class="openbtn" data-action="click->togglenavbar#toggleNav"><i class="fa-solid fa-bars"></i></button>
         </div>
     <script src="script.js">
     </script>
