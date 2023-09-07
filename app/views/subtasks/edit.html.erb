@@ -1,2 +1,7 @@
-<h1>Subtasks#edit</h1>
-<p>Find me in app/views/subtasks/edit.html.erb</p>
+<div class="container-md my-5 d-flex flex-column">
+  <h1>Edit <%= @subtask.activity.camelize(:lower)  %></h1>
+
+  <div class="m-3 mt-5 col-9 align-self-center">
+    <%= render 'form' %>
+  </div>
+</div>

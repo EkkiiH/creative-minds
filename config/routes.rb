@@ -23,5 +23,9 @@ Rails.application.routes.draw do
       patch :toggle_complete
     end
   end
-  resources :subtasks, only: %i[edit update destroy]
+  resources :subtasks, only: %i[edit update destroy] do
+    member do
+      patch :toggle_complete
+    end
+  end
 end

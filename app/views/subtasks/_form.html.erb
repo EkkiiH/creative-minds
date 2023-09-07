@@ -1,0 +1,13 @@
+<%= simple_form_for([@task, @subtask]) do |f| %>
+  <%= f.input :activity, label: false, placeholder: "What's the subtask" %>
+  <%= f.input :priority %>
+  <%= f.input :due_date, label: false, placeholder: "When is it due?" %>
+  <div class="m-2 align-self-center">
+    <%= f.submit value: 'Apply', class: 'btn btn-primary px-3 rounded-5' %>
+  </div>
+  <div class="m-2">
+    <%= link_to url_for(:back), class: 'btn font-skyblue px-2' do %>
+      <i class="fa-solid fa-chevron-left">&nbsp back</i>
+    <% end %>
+  </div>
+<% end %>
