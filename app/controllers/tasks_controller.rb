@@ -23,6 +23,25 @@ class TasksController < ApplicationController
     # initialize new task
   end
 
+  def new_without_plan
+    @task = Task.new
+    # @plan = Plan.find(params[:plan_id])
+    authorize @task
+    # find plan
+    # initialize new task
+  end
+
+  def create_without_plan
+    @task = Task.new(task_without_plan_params)
+    @task.user = current_user
+    authorize @task
+    if @task.save
+      redirect_to tasks_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   # POST /plans/:plan_id/tasks
   def create
     @task = Task.new(task_params)
@@ -51,7 +70,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     authorize @task
     if @task.update(task_params)
-      redirect_to task_path(@task)
+      redirect_to tasks_path
     else
       render :edit, status: :unprocessable_entity
     end
@@ -74,5 +93,9 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:activity, :completion, :priority, :due_date)
+  end
+
+  def task_without_plan_params
+    params.require(:task).permit(:activity, :completion, :priority, :due_date, :plan_id)
   end
 end

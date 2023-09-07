@@ -17,6 +17,10 @@ class TaskPolicy < ApplicationPolicy
     true
   end
 
+  def new_without_plan?
+    new?
+  end
+
   def create?
     record.user == user
   end
@@ -32,4 +36,9 @@ class TaskPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def create_without_plan?
+    record.user == user
+  end
+
 end
