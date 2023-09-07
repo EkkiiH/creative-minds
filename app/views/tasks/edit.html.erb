@@ -1,3 +1,7 @@
-<h1>Edit a new task</h1>
+<div class="container-md my-5 d-flex flex-column">
+  <h1>Edit <%= @task.activity.camelize(:lower)  %></h1>
 
-<%= render 'form' %>
+  <div class="m-3 mt-5 col-9 align-self-center">
+    <%= render 'form' %>
+  </div>
+</div>
