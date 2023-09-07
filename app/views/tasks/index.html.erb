@@ -13,7 +13,17 @@
       <% @tasks.each do |task| %>
       <div class="card m-3 p-3">
         <h3><%= task.activity %></h3>
-        <p class="fw-light">due on <%= task.due_date %></p>
+        <p class="fw-light">due on <%= task.due_date.try(:strftime, "%d/%m/%Y") %></p>
+
+          <div class="card-body">
+            <% task.subtasks.each do |subtask|  %>
+               <%= render 'subtasks/subtask', subtask: subtask %>
+               <%= subtask.activity %>
+            <% end %>
+            <%= link_to new_task_subtask_path(task),class: 'btn font-turquoise px-2 ms-3' do %>
+              <i class="fa-solid fa-plus"></i>&nbsp new subtask
+            <% end %>
+          </div>
 
           <div class="m-3">
             <%= link_to edit_task_path(task),

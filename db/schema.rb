@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_05_135854) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_045448) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_135854) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_plans_on_user_id"
+  end
+
+  create_table "subtasks", force: :cascade do |t|
+    t.string "activity"
+    t.boolean "completion"
+    t.integer "priority"
+    t.date "due_date"
+    t.bigint "task_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_subtasks_on_task_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -49,5 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_135854) do
   end
 
   add_foreign_key "plans", "users"
+  add_foreign_key "subtasks", "tasks"
   add_foreign_key "tasks", "plans"
 end

@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Subtask.destroy_all
 Task.destroy_all
 Plan.destroy_all
 User.destroy_all
@@ -83,7 +84,7 @@ plan7 = Plan.new(
   name: "Join Le Wagon Bootcamp",
   description: "Data Science Bootcamp",
   start_date: "",
-  end_date: Time.strptime('19/01/2024 00:00', '%m/%d/%Y %H:%M'),
+  end_date: Time.strptime('06/01/2024 00:00', '%m/%d/%Y %H:%M'),
   user: user2
 )
 plan7.save!
@@ -92,7 +93,7 @@ plan8 = Plan.new(
   name: "Christmas Party at Office",
   description: "No office hours, but full-day party",
   start_date: "",
-  end_date: Time.strptime('24/12/2023 00:00', '%m/%d/%Y %H:%M'),
+  end_date: Time.strptime('11/1/2023 00:00', '%m/%d/%Y %H:%M'),
   user: user1
 )
 plan8.save!
@@ -101,7 +102,7 @@ plan9 = Plan.new(
   name: "New Year Celebration with extended Family",
   description: "It is held at Uncle Sam House",
   start_date: "",
-  end_date: Time.strptime('31/12/2023 00:00', '%m/%d/%Y %H:%M'),
+  end_date: Time.strptime('1/12/2023 00:00', '%m/%d/%Y %H:%M'),
   user: user1
 )
 plan9.save!
@@ -292,7 +293,7 @@ Subtask.create!(
   completion: false,
   priority: 0,
   due_date: "",
-  plan: task1
+  task: task1
 )
 
 # Buy the luggages
@@ -301,7 +302,7 @@ Subtask.create!(
   completion: false,
   priority: 2,
   due_date: "",
-  plan: task2
+  task: task2
 )
 
 # Buy the luggages
@@ -310,7 +311,7 @@ Subtask.create!(
   completion: true,
   priority: 2,
   due_date: "",
-  plan: task2
+  task: task2
 )
 
 # Buy a host and domain
@@ -319,7 +320,7 @@ Subtask.create!(
   completion: false,
   priority: 1,
   due_date: "",
-  plan: task3
+  task: task3
 )
 
 # Create a design
@@ -328,7 +329,7 @@ Subtask.create!(
   completion: true,
   priority: 1,
   due_date: "",
-  plan: task4
+  task: task4
 )
 
 # gather some inspiration
@@ -337,25 +338,25 @@ Subtask.create!(
   completion: false,
   priority: 1,
   due_date: "",
-  plan: task5
+  task: task5
 )
 
-# buy some plants
+# buy some taskts
 Subtask.create!(
   activity: "buy plant pots",
   completion: true,
   priority: 1,
   due_date: "",
-  plan: task6
+  task: task6
 )
 
-# buy some plants
+# buy some taskts
 Subtask.create!(
   activity: "buy shovels",
   completion: false,
   priority: 1,
   due_date: "",
-  plan: task6
+  task: task6
 )
 
 # Make some space in the living room
@@ -364,7 +365,7 @@ Subtask.create!(
   completion: false,
   priority: 0,
   due_date: "",
-  plan: task7
+  task: task7
 )
 
 # make a schema of the content
@@ -373,7 +374,7 @@ Subtask.create!(
   completion: false,
   priority: 1,
   due_date: "",
-  plan: task8
+  task: task8
 )
 
 # Set a meeting with some folks to interview
@@ -382,7 +383,7 @@ Subtask.create!(
   completion: false,
   priority: 0,
   due_date: "",
-  plan: task9
+  task: task9
 )
 
 # Rent a place in the wood to write during the holidays
@@ -391,7 +392,7 @@ Subtask.create!(
   completion: false,
   priority: 1,
   due_date: "",
-  plan: task10
+  task: task10
 )
 
 # Buy a formal party gown
@@ -400,7 +401,7 @@ Subtask.create!(
   completion: true,
   priority: 1,
   due_date: "",
-  plan: task11
+  task: task11
 )
 
 # Buy a formal party gown
@@ -409,7 +410,7 @@ Subtask.create!(
   completion: false,
   priority: 2,
   due_date: "",
-  plan: task11
+  task: task11
 )
 
 # Buy a wedding gift for Joe
@@ -418,7 +419,7 @@ Subtask.create!(
   completion: false,
   priority: 2,
   due_date: "",
-  plan: task12
+  task: task12
 )
 
 # Pass the interview and quiz
@@ -427,7 +428,7 @@ Subtask.create!(
   completion: true,
   priority: 1,
   due_date: "",
-  plan: task13
+  task: task13
 )
 
 # Preparation and study for the quiz
@@ -436,7 +437,7 @@ Subtask.create!(
   completion: false,
   priority: 0,
   due_date: "",
-  plan: task14
+  task: task14
 )
 
 # Preparation and study for the quiz
@@ -445,7 +446,7 @@ Subtask.create!(
   completion: false,
   priority: 1,
   due_date: "",
-  plan: task14
+  task: task14
 )
 
 # Buy a gift for the gift exchange
@@ -454,7 +455,7 @@ Subtask.create!(
   completion: true,
   priority: 1,
   due_date: "",
-  plan: task15
+  task: task15
 )
 
 
@@ -464,7 +465,7 @@ Subtask.create!(
   completion: true,
   priority: 1,
   due_date: "",
-  plan: task16
+  task: task16
 )
 
 # food and drinks for the potluck
@@ -473,7 +474,7 @@ Subtask.create!(
   completion: true,
   priority: 0,
   due_date: "",
-  plan: task17
+  task: task17
 )
 
 # prepare a gift for my niece
@@ -482,7 +483,7 @@ Subtask.create!(
   completion: false,
   priority: 0,
   due_date: "",
-  plan: task18
+  task: task18
 )
 
 puts 'Succesful creation of 22 subtasks!'
