@@ -4,24 +4,23 @@
   font-size: 1em;
 }
 
-.tasks::before {
-  content: "";
-  padding: 8px 6px;
-  background-color: $sky-blue;
-  border-radius: 5px;
-  margin-right: 1rem;
+.tasks .color-status {
+  width: 0.6rem;
+  height: 2.4rem;
+  background: $sky-blue;
+  border-radius: 0.4rem;
 }
-*
+
 .done {
   text-decoration: none;
   color: $dark-grey;
-  font-style: italic;
 }
 
-.done::before {
+.done .color-status {
   background-color: $light-green;
 }
 
 .done bdi{
   text-decoration: line-through;
+  font-style: italic;
 }

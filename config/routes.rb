@@ -17,4 +17,9 @@ Rails.application.routes.draw do
   post "/tasks", to: "tasks#create_without_plan", as: :create_without_plan
   get "/tasks/new", to: "tasks#new_without_plan", as: :new_without_plan
   resources :tasks, only: %i[index edit update destroy]
+  resources :tasks, only: %i[index edit update destroy] do
+    member do
+      patch :toggle_complete
+    end
+  end
 end
