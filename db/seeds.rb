@@ -67,16 +67,28 @@ plan5 = Plan.new(
   user: user2
 )
 plan5.save!
+
+plan6 = Plan.new(
+  name: "Write a novel",
+  description: "Bring all my ideas into a big action novel",
+  start_date: "",
+  end_date: Time.strptime('09/01/2025 00:00', '%m/%d/%Y %H:%M'),
+  user: user1
+
+)
+
 puts 'Succesful creation of 5 plans!'
 
 puts 'create 10 tasks...'
-Task.create!(
+#plan1 Trip to Las Vegas
+task1 = Task.new(
   activity: "Buy the tickets",
   completion: false,
   priority: 0,
   due_date: Time.strptime('07/01/2024 09:00', '%m/%d/%Y %H:%M'),
   plan: plan1
 )
+task1.save!
 
 Task.create!(
   activity: "Buy the luggages",
@@ -85,7 +97,7 @@ Task.create!(
   due_date: Time.strptime('10/01/2024 09:00', '%m/%d/%Y %H:%M'),
   plan: plan1
 )
-
+#plan2 Create a website
 Task.create!(
   activity: "Buy a host and domain",
   completion: true,
@@ -101,7 +113,7 @@ Task.create!(
   due_date: Time.strptime('11/15/2023 09:00', '%m/%d/%Y %H:%M'),
   plan: plan2
 )
-
+#plan3 Make a logo
 Task.create!(
   activity: "gather some inspiration",
   completion: false,
@@ -109,7 +121,7 @@ Task.create!(
   due_date: "",
   plan: plan3
 )
-
+#plan4 Having a interior garden
 Task.create!(
   activity: "buy some plants",
   completion: false,
@@ -125,7 +137,7 @@ Task.create!(
   due_date: Time.strptime('09/20/2023 14:00', '%m/%d/%Y %H:%M'),
   plan: plan4
 )
-
+#plan5 Write a novel
 Task.create!(
   activity: "make a schema of the content",
   completion: true,
@@ -150,3 +162,4 @@ Task.create!(
   plan: plan5
 )
 puts 'Succesful creation of 10 tasks!'
+

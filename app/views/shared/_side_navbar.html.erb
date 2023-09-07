@@ -2,7 +2,9 @@
         <!-- Sidebar  -->
         <nav id="sidebar" data-togglenavbar-target="sidenavbar">
             <div class="sidebar-header">
-                <h3 class="side-navbar"></i> Board</h3>
+              <%= link_to authenticated_root_path, class:"side-navbar d-flex flex-row align-items-start text-decoration-none text-white" do %>
+              <h3><i class="fa-solid fa-house"></i>&nbsp Board</h3>
+              <% end %>
             </div>
 
             <ul class="list-unstyled components">
@@ -14,31 +16,23 @@
                 </li>
                 <li>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Your Plan</a>
+                    <a href="#homeSubmenu" class="dropdown-toggle" data-toggle="collapse" aria-expanded="false">Plans</a>
+                    <div class="go-"></div>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Plan A</a>
-                        </li>
-                        <li>
-                            <a href="#">Plan B</a>
-                        </li>
-                        <li>
-                            <a href="#">Plan C</a>
-                        </li>
-                        <li>
-                            <a href="#">Plan D</a>
-                        </li>
+                    <% @plans.each do |plan| %>
+                      <li><%= link_to plan.name, plan_path(plan) %></li>
+                    <% end %>
                     </ul>
                 </li>
                 <li>
-            <ul class="list-unstyled CTAs">
+            <%# <ul class="list-unstyled CTAs">
                 <li>
                     <a href="#" class="download">Download source</a>
                 </li>
                 <li>
                     <a href="#" class="article">Back to article</a>
                 </li>
-            </ul>
+            </ul> %>
         </nav>
         <div id="main">
           <button class="openbtn" data-action="click->togglenavbar#toggleNav"><i class="fa-solid fa-bars"></i></button>

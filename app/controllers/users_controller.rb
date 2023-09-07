@@ -5,5 +5,6 @@ class UsersController < ApplicationController
     authorize @user
     @plans = Plan.all
     @tasks = Task.all
+    # raise
   end
 end

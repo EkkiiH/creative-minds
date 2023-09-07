@@ -1,21 +1,29 @@
 // @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
+#main {
+  font-size: 1.4rem;
+  cursor: pointer;
+  background-color: #25D0B6;
+  color: $white;
+  height: 100vh;
+  z-index: 1;
+}
+
 .openbtn {
   font-size: 1.4rem;
   cursor: pointer;
   background-color: $turquoise;
   color: $white;
-  padding: 0.8rem 1.2rem;
+  padding: 1.4rem 1.2rem;
   border: none;
   z-index: 1;
 }
-
 .openbtn:hover {
   background-color: $sky-blue;
 }
 .side-navbar h3{
     text-shadow: 0 0 3px rgba(0,0,0,0.6);
-    margin: 2rem 0;
+    margin: 1.4rem 0;
 }
 
 #sidebar{
@@ -43,27 +51,12 @@
   display: none;
 }
 
-.navbar {
-    padding: 1.2rem 0.8rem;
-    background: #fff;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
 .navbar-btn {
     box-shadow: none;
     outline: none !important;
     border: none;
 }
 
-.line {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
-}
 
 /* ---------------------------------------------------
     SIDEBAR STYLE
@@ -77,8 +70,8 @@
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 200px;
+    max-width: 200px;
     background: #25D0B6;
     color: #fff;
     transition: all 0.3s;
@@ -89,13 +82,13 @@
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
-    background: #4ee0cb;
+    padding: 0rem 1.4rem;
+    background: $turquoise;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    // border-bottom: 1px solid $turquoise;
 }
 
 #sidebar ul p {
@@ -110,7 +103,7 @@
 }
 
 #sidebar ul li a:hover {
-    color: #4ee0cb;
+    color: $dark;
     background: #fff;
 }
 
@@ -132,7 +125,7 @@ a[data-toggle="collapse"] {
     transform: translateY(-50%);
 }
 
-ul ul a {
+#sidebar ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
     background: #4ee0cb;
@@ -150,16 +143,16 @@ ul.CTAs a {
     margin-bottom: 5px;
 }
 
-a.download {
-    background: #fff;
-    color: #4ee0cb;
-}
+// a.download {
+//     background: #fff;
+//     color: #4ee0cb;
+// }
 
-a.article,
-a.article:hover {
-    background: #4ee0cb !important;
-    color: #fff !important;
-}
+// a.article,
+// a.article:hover {
+//     background: #4ee0cb !important;
+//     color: #fff !important;
+// }
 
 /* ---------------------------------------------------
     CONTENT STYLE
