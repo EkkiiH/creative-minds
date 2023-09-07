@@ -1,15 +1,14 @@
-<div class="container">
+<div class="container my-5">
   <h1>View of all my tasks</h1>
 
   <div class="m-3">
+    <div class="m-3">
         <%= link_to new_without_plan_path,
-            class: 'btn text-success px-3' do %>
-            <i class="fa-solid fa-plus"></i>
+            class: 'btn font-turquoise px-2' do %>
+            <i class="fa-solid fa-plus"></i>&nbsp add a new task
         <% end %>
-        <p>Sort by:
-          <%= link_to "Due Date", tasks_path(order: 'due_date') %>,
-          <%= link_to "Priority", tasks_path(order: 'priority') %>
-      </p>
+    </div>
+ <div>
       <% @tasks.each do |task| %>
       <div class="card m-3 p-3">
         <h3><%= task.activity %></h3>
@@ -18,7 +17,6 @@
           <div class="card-body">
             <% task.subtasks.each do |subtask|  %>
                <%= render 'subtasks/subtask', subtask: subtask %>
-               <%= subtask.activity %>
             <% end %>
             <%= link_to new_task_subtask_path(task),class: 'btn font-turquoise px-2 ms-3' do %>
               <i class="fa-solid fa-plus"></i>&nbsp new subtask
@@ -36,7 +34,7 @@
               <i class="fa-solid fa-xmark"></i>
             <% end %>
           </div>
-      </div class="card">
+      </div>
     <% end %>
   </div>
 </div>
