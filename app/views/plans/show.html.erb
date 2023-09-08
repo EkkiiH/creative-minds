@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="container my-5 mx-3">
   <h1><%= @plan.name %></h1>
   <div class="progress-bar" data-controller="progress-bar" data-progress-bar-target="progress" data-progress-bar-plans-value="<%=@plan.tasks.size%>"data-progress-bar-completedplans-value="<%=@plan.tasks.select{|task| task.completion}.size%>">
     <progress value="75" min="0" max="100" style="visibility:hidden;height:0;width:0;" data-progress-bar-target="circle">75%</progress>
@@ -16,23 +16,10 @@
     <% end %>
     </p>
     <div class="card-body">
-      <% @plan.tasks.each do |task|  %>
-        <p class="ms-5 d-flex flex-row">
-          <p class="ms-5  tasks">
-            <bdi>
-              <%= task.activity %>
-              <%= task.due_date %>
-            </bdi>
-            <%= link_to edit_task_path(task), class: 'btn text-warning px-2' do %>
-              <i class="fa-solid fa-rotate"></i>
+            <% @plan.tasks.each do |task|  %>
+              <div class="ms-1 my-3 d-flex flex-column"><%= render 'tasks/task', task: task %></div>
             <% end %>
-            <%= link_to task_path(task), class: 'btn text-danger px-2',
-                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-              <i class="fa-solid fa-xmark"></i>
-            <% end %>
-          </p>
-        </p>
-      <% end %>
+
       <%= link_to new_plan_task_path(@plan),class: 'btn font-turquoise px-2' do %>
         <i class="fa-solid fa-plus">&nbsp new task</i>
       <% end %>
