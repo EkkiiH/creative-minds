@@ -24,3 +24,8 @@
   text-decoration: line-through;
   font-style: italic;
 }
+
+.subtask-arrow::before {
+  content: "↳";
+  padding-right: 1.2rem;
+}
