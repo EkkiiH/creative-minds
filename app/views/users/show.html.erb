@@ -7,7 +7,9 @@
       <h3>What would you like to do ?</h3>
       <div class="m-3 font-turquoise p-3">
         <i class="fa-solid fa-plus">&nbsp</i>
-        <input type="text" name="" id="" placeholder="Write about a new idea" style="width: 90%;font-style:italic">
+        <%= form_with url: new_plan_path do |f| %>
+        <%= f.text_field :plan.name, placeholder: "Add your new plan name" %>
+<% end %>
       </div>
     </div>
   <%# *********  end add an idea/plan ********* %>
@@ -37,7 +39,7 @@
             <%= render 'tasks/task', task: task %>
           <% end %>
         <% end %>
-        <%= link_to new_plan_task_path(@plans),class: 'btn font-turquoise px-2 ms-3' do %>
+        <%= link_to new_without_plan_path,class: 'btn font-turquoise px-2 ms-3' do %>
           <i class="fa-solid fa-plus"></i>&nbsp new task
         <% end %>
       </div>

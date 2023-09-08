@@ -4,7 +4,7 @@
   <div class="m-3 mt-5 col-9 align-self-center">
   <%= simple_form_for(@task, url: create_without_plan_path) do |f| %>
   <%= f.input :plan_id, collection: Plan.where( user: current_user) %>
-  <%= f.input :activity, label: false, placeholder: "What's the task" %>
+  <%= f.input :activity, label: false, placeholder: "What is the task" %>
   <%= f.input :priority %>
   <%= f.input :due_date, label: false, placeholder: "When is it due?" %>
   <div class="m-2 align-self-center">
