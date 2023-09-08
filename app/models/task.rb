@@ -6,4 +6,8 @@ class Task < ApplicationRecord
   validates :activity, uniqueness: true
   validates :activity, presence: true
   validates :priority, numericality: { in: 0..2 }
+
+  def start_time
+    self.due_date
+  end
 end
