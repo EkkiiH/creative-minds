@@ -1,42 +1,50 @@
-<div class="container">
+<div class="container my-5">
   <h1>View of all my tasks</h1>
 
   <div class="m-3">
+    <div class="m-3">
         <%= link_to new_without_plan_path,
-            class: 'btn text-success px-3' do %>
-            <i class="fa-solid fa-plus"></i>
+            class: 'btn font-turquoise px-2' do %>
+            <i class="fa-solid fa-plus"></i>&nbsp add a new task
         <% end %>
-        <p>Sort by:
-          <%= link_to "Due Date", tasks_path(order: 'due_date') %>,
-          <%= link_to "Priority", tasks_path(order: 'priority') %>
-      </p>
-      <% @tasks.each do |task| %>
-      <div class="card m-3 p-3">
-        <h3><%= task.activity %></h3>
-        <p class="fw-light">due on <%= task.due_date.try(:strftime, "%d/%m/%Y") %></p>
-
-          <div class="card-body">
-            <% task.subtasks.each do |subtask|  %>
-               <%= render 'subtasks/subtask', subtask: subtask %>
-               <%= subtask.activity %>
-            <% end %>
-            <%= link_to new_task_subtask_path(task),class: 'btn font-turquoise px-2 ms-3' do %>
-              <i class="fa-solid fa-plus"></i>&nbsp new subtask
-            <% end %>
-          </div>
-
-          <div class="m-3">
-            <%= link_to edit_task_path(task),
-                        class: 'btn text-warning px-3' do %>
-              <i class="fa-solid fa-rotate"></i>
-            <% end %>
-            <%= link_to task_path(task),
-                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                        class: 'btn text-danger px-3' do %>
-              <i class="fa-solid fa-xmark"></i>
-            <% end %>
-          </div>
-      </div class="card">
-    <% end %>
   </div>
+
+  <div>
+          <% @tasks.each do |task| %>
+          <div>
+            <h3>
+             <%= task.activity %>
+                <%= link_to edit_task_path(task), class: 'btn text-warning px-3' do %>
+                  <i class="fa-solid fa-rotate"></i>
+                <% end %>
+                <%= link_to task_path(task),
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                  class: 'btn text-danger px-3' do %>
+                  <i class="fa-solid fa-xmark"></i>
+                <% end %>
+            </h3>
+            <p class="fw-light">due on <%= task.due_date.try(:strftime, "%d/%m/%Y") %></p>
+
+              <div class="card-body">
+                <% task.subtasks.each do |subtask|  %>
+                  <%= render 'subtasks/subtask', subtask: subtask %>
+                <% end %>
+                <%= link_to new_task_subtask_path(task),class: 'btn font-turquoise px-2 ms-3' do %>
+                  <i class="fa-solid fa-plus"></i>&nbsp new subtask
+                <% end %>
+              </div>
+          </div>
+        <% end %>
+    </div>
+            <div>
+            <%= month_calendar(events: @tasks) do |date, tasks| %>
+            <%= date %>
+
+            <% tasks.each do |task| %>
+              <div>
+                <%= task.activity %>
+              </div>
+            <% end %>
+            <% end %>
+            </div>
 </div>
