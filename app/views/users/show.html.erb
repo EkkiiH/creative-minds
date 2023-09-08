@@ -1,5 +1,5 @@
-<div class="container my-5 d-flex">
-  <div class="m-3 ">
+<div class="container my-5 mx-3 p-5 d-flex">
+  <div class="m-3 me-5">
     <h1 class="mb-5">Hello, <%= @user.email %></h1>
 
   <%# ********  start add an idea/plan ******** %>
@@ -7,25 +7,25 @@
       <h3>What would you like to do ?</h3>
       <div class="m-3 font-turquoise p-3">
         <i class="fa-solid fa-plus">&nbsp</i>
-        <%= form_with url: new_plan_path do |f| %>
-        <%= f.text_field :plan.name, placeholder: "Add your new plan name" %>
-<% end %>
+        <%= simple_form_for  new_plan_path do |f| %>
+          <%= f.input :plan.name, label: false, placeholder: "Add your new plan name", input_html: { class: 'bg-white fw-light rounded-5 px-4', style: 'width:80%'} %>
+        <% end %>
       </div>
     </div>
   <%# *********  end add an idea/plan ********* %>
 
   <%# *******  start last plans created ******* %>
-  <div class="m-3 d-flex flex-wrap">
+    <div class="m-3 d-flex flex-wrap">
       <% @plans[0..2].each do |plan| %>
-        <div class="m-3">
+        <div class="m-3 text-center" style="width:140px">
           <%= link_to(plan_path(plan), class:'text-decoration-none text-dark') do %>
+            <div class="m-3 d-flex flex-wrap">
+              <div class="progress-bar" data-controller="progress-bar" data-progress-bar-target="progress" data-progress-bar-plans-value="<%=plan.tasks.size%>"data-progress-bar-completedplans-value="<%=plan.tasks.select{|task| task.completion}.size%>">
+                <progress value="75" min="0" max="100" style="visibility:hidden;height:0;width:0;" data-progress-bar-target="circle">75%</progress>
+              </div>
+            </div>
             <h5 class="fw-bold"><%= plan.name %></h5>
           <% end %>
-          <div class="m-3 d-flex flex-wrap">
-            <div class="progress-bar" data-controller="progress-bar" data-progress-bar-target="progress" data-progress-bar-plans-value="<%=plan.tasks.size%>"data-progress-bar-completedplans-value="<%=plan.tasks.select{|task| task.completion}.size%>">
-              <progress value="75" min="0" max="100" style="visibility:hidden;height:0;width:0;" data-progress-bar-target="circle">75%</progress>
-            </div>
-          </div>
         </div>
       <% end %>
     </div>
@@ -48,9 +48,10 @@
           <i class="fa-solid fa-plus"></i>&nbsp new task
         <% end %>
       </div>
-    <%= link_to tasks_path, class: 'btn font-skyblue px-2' do %>
-      <i class="fa-solid fa-chevron-right">&nbsp see more</i>
-    <% end %>
+      <%= link_to tasks_path, class: 'btn font-skyblue px-2' do %>
+        <i class="fa-solid fa-chevron-right">&nbsp see more</i>
+      <% end %>
+    </div>
   </div>
   <%# ************  end todo list  ************ %>
 </div>
