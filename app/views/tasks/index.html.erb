@@ -37,7 +37,7 @@
         <% end %>
     </div>
             <div>
-            <%= week_calendar(events: @tasks) do |date, tasks| %>
+            <%= month_calendar(events: @tasks) do |date, tasks| %>
             <%= date %>
 
             <% tasks.each do |task| %>
