@@ -1,7 +1,7 @@
 <%= simple_form_for([@plan, @task]) do |f| %>
-  <%= f.input :activity, label: false, placeholder: "What is the task" %>
-  <%= f.input :priority %>
-  <%= f.input :due_date, label: false, placeholder: "When is it due?" %>
+  <%= f.input :activity, label: false, placeholder: "What is the task", input_html: { class: 'bg-white fw-light rounded-5 px-4'} %>
+  <%= f.input :priority, input_html: { class: 'bg-white fw-light rounded-5 px-4'} %>
+  <%= f.input :due_date, label: false, placeholder: "When is it due?",input_html: { class: 'bg-white fw-light rounded-5 px-4', data: { controller: "datepicker" } } %>
   <div class="m-2 align-self-center">
     <%= f.submit value: 'Apply', class: 'btn btn-primary px-3 rounded-5' %>
   </div>
