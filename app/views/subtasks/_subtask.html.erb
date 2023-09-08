@@ -1,6 +1,6 @@
 <%= turbo_frame_tag dom_id(subtask), target: :_top, class: "ms-5 d-flex flex-row" do %>
-  <div class="ms-2 tasks d-flex align-items-center <%= 'done' if subtask.completion %>">
-    <div class="color-status me-3"></div>
+  <div class="ms-1 tasks d-flex align-items-center  subtask-arrow <%= 'done' if subtask.completion %>">
+    <div class="color-status me-3 "></div>
     <bdi>
       <%= subtask.activity %>
       <p class='mb-0'>
