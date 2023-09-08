@@ -25,9 +25,12 @@
         <% end %>
       </div>
     </div>
-    <div class="my-3 ms-1 d-flex flex-column">
+    <div class="my-3 d-flex flex-column">
       <% task.subtasks.each do |subtask|  %>
         <%= render 'subtasks/subtask', subtask: subtask , class:"subtask-arrow" %>
+      <% end %>
+      <%= link_to new_task_subtask_path(task),class: 'btn font-turquoise' do %>
+        <i class="fa-solid fa-plus"></i>&nbsp add
       <% end %>
     </div>
   </div>
