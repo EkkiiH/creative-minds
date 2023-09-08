@@ -15,12 +15,15 @@
   <%# *********  end add an idea/plan ********* %>
 
   <%# *******  start last plans created ******* %>
-    <div class="m-3 d-flex flex-wrap">
       <% @plans[0..2].each do |plan| %>
         <div class="m-3">
           <%= link_to(plan_path(plan), class:'text-decoration-none text-dark') do %>
             <h5 class="fw-bold"><%= plan.name %></h5>
           <% end %>
+          <div class="m-3 d-flex flex-wrap">
+            <div class="progress-bar" data-controller="progress-bar" data-progress-bar-target="progress" data-progress-bar-plans-value="<%=plan.tasks.size%>"data-progress-bar-completedplans-value="<%=plan.tasks.select{|task| task.completion}.size%>">
+              <progress value="75" min="0" max="100" style="visibility:hidden;height:0;width:0;" data-progress-bar-target="circle">75%</progress>
+            </div>
         </div>
       <% end %>
     </div>

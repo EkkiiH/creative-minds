@@ -1,5 +1,8 @@
 <div class="container my-5 mx-3">
   <h1><%= @plan.name %></h1>
+  <div class="progress-bar" data-controller="progress-bar" data-progress-bar-target="progress" data-progress-bar-plans-value="<%=@plan.tasks.size%>"data-progress-bar-completedplans-value="<%=@plan.tasks.select{|task| task.completion}.size%>">
+    <progress value="75" min="0" max="100" style="visibility:hidden;height:0;width:0;" data-progress-bar-target="circle">75%</progress>
+  </div>
 
   <div class="m-3">
     <p><%= @plan.description %>
