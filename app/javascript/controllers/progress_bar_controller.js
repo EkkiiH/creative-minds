@@ -9,7 +9,7 @@ export default class extends Controller {
   }
   connect() {
     console.log(this)
-    const percentage = (this.completedplansValue/this.plansValue)*100
+    const percentage =  Math.ceil((this.completedplansValue/this.plansValue)*100)
     this.circleTarget.innerHTML = percentage
     this.circleTarget.value = percentage
     this.progressTarget.style.background = `radial-gradient(closest-side, white 79%, transparent 80% 100%),conic-gradient(#0ac6fa ${percentage}%, #92fa9c 0)`
