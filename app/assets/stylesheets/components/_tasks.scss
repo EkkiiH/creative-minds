@@ -1,31 +1,44 @@
 .tasks {
   text-decoration: none;
-
   font-size: 1em;
+  line-height: 1.2em;
+  padding-top: 1rem;
+}
+
+.task-due {
+  font-size: 0.9em;
 }
 
 .tasks .color-status {
-  width: 0.6rem;
-  height: 2.4rem;
-  background: $sky-blue;
-  border-radius: 0.4rem;
+  width: 15px;
+  height: 38px;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.task-0 {
+  background: $blue;
+}
+
+.task-1 {
+  background: $orange;
+}
+
+.task-2 {
+  background: $red;
 }
 
 .done {
   text-decoration: none;
-  color: $dark-grey;
+  color: $dark-gray;
 }
 
-.done .color-status {
-  background-color: $light-green;
+.new-task, .done .color-status {
+  background: $light-gray !important;
 }
 
 .done bdi{
   text-decoration: line-through;
   font-style: italic;
-}
-
-.subtask-arrow::before {
-  content: "↳";
-  padding-right: 1.2rem;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }

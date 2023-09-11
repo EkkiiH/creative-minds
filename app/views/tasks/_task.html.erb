@@ -3,11 +3,11 @@
 <%= turbo_frame_tag dom_id(task), target: :_top, data: {controller:"progress-bar"}, class: "ms-2 d-flex flex-row" do %>
   <div class="d-flex flex-column">
     <div class="ms-2 tasks d-flex align-items-center <%= 'done' if task.completion %>">
-      <div class="color-status me-3"></div>
+      <div class="color-status me-3 task-<%= task.priority %> "></div>
       <bdi>
         <%= task.activity %>
-        <p class='mb-0'>
-          <small>Due <%= task.due_date.try(:strftime, "%d/%m/%Y") %></small>
+        <p class='mb-0 task-due'>
+          <small><i class="fa-regular fa-calendar"></i> <%= task.due_date.try(:strftime, "%d/%m/%Y") %></small>
         </p>
       </bdi>
       <div class="ms-3 d-flex align-items-center">

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/calendar", to: "calendar#index"
+
   post "/tasks", to: "tasks#create_without_plan", as: :create_without_plan
   get "/tasks/new", to: "tasks#new_without_plan", as: :new_without_plan
   resources :tasks, only: %i[index edit update destroy]

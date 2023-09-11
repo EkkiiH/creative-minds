@@ -1,8 +1,15 @@
 <%= simple_form_for([@task, @subtask]) do |f| %>
   <%= f.input :activity, label: false, placeholder: "What is the subtask", input_html: { class: 'bg-white fw-light rounded-5 px-4'} %>
-  <%= f.input :priority, input_html: { class: 'bg-white fw-light rounded-5 px-4'} %>
-  <%# <%= f.input :due_date, label: false, placeholder: "When is it due?",input_html: { class: 'bg-white fw-light rounded-5 px-4', data: { controller: "datepicker" } } %>
-  <%= f.input :start_date, as: :string, label: 'Pick a starting date:',input_html: { class: 'bg-white fw-light rounded-5 px-4', data: { controller: "datepicker" } } %>
+
+  <%= f.input :priority,
+    as: :radio_buttons,
+    collection_wrapper_tag: 'div',
+    collection_wrapper_class: 'priority-wrapper',
+    item_wrapper_class: 'priority-item',
+    input_html: {class: 'priority-selector'},
+    collection: Subtask::PRIORITIES %>
+
+ <%= f.input :start_date, as: :string, label: 'Pick a starting date:',input_html: { class: 'bg-white fw-light rounded-5 px-4', data: { controller: "datepicker" } } %>
   <%= f.input :end_date, as: :string, label: 'And your goal date:',input_html: { class: 'bg-white fw-light rounded-5 px-4', id: "end_date"} %>
   <div class="m-2 align-self-center">
     <%= f.submit value: 'Apply', class: 'btn btn-primary px-3 rounded-5' %>
