@@ -43,7 +43,11 @@
               <% end %>
             </h3>
             <p><%= plan.description %></p>
-            <p class="fw-light"><small>Starting <%= plan.start_date.try(:strftime, "%d/%m/%Y") %> to <%= plan.end_date.try(:strftime, "%d/%m/%Y") %></small></p>
+            <% if plan.start_date == plan.end_date %>
+            <p class="fw-light"><small>Date: <%= plan.start_date.try(:strftime, "%d/%m/%Y") %></small></p>
+           <% else %>
+           <p class="fw-light"><small>Starting <%= plan.start_date.try(:strftime, "%d/%m/%Y") %> to <%= plan.end_date.try(:strftime, "%d/%m/%Y") %></small></p>
+           <% end %>
           </div>
 
           <div class="card-body">
