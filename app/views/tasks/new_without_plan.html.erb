@@ -5,8 +5,13 @@
     <%= simple_form_for(@task, url: create_without_plan_path) do |f| %>
   <%= f.input :plan_id, collection: Plan.where( user: current_user), input_html: { class: 'bg-white fw-light rounded-5 px-4'} %>
   <%= f.input :activity, label: false, placeholder: "What is the task", input_html: { class: 'bg-white fw-light rounded-5 px-4'} %>
-  <%= f.input :priority, input_html: { class: 'bg-white fw-light rounded-5 px-4'} %>
-  <%= f.input :due_date, label: false, placeholder: "When is it due?", input_html: { class: 'bg-white fw-light rounded-5 px-4', data: { controller: "datepicker" } } %>
+  <%= f.input :priority,
+      as: :radio_buttons,
+      collection_wrapper_tag: 'div',
+      collection_wrapper_class: 'priority-wrapper',
+      item_wrapper_class: 'priority-item',
+      input_html: {class: 'priority-selector'},
+      collection: Task::PRIORITIES %>  <%= f.input :due_date, label: false, placeholder: "When is it due?", input_html: { class: 'bg-white fw-light rounded-5 px-4', data: { controller: "datepicker" } } %>
   <div class="m-2 align-self-center">
     <%= f.submit value: 'Apply', class: 'btn btn-primary px-3 rounded-5' %>
   </div>

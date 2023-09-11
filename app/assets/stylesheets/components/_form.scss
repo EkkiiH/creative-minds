@@ -1,0 +1,70 @@
+.priority-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.priority-item {
+  flex: 0 0 30%;
+}
+
+.priority-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.priority-selector + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  /* font-size: 12px; */
+  font-weight: 600;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  text-align: center;
+  padding: 0.4rem;
+  /* border: 1px solid #EAEAEA; */
+  border-radius: 8px;
+  background-color: $white;
+}
+
+.priority-selector:checked + label {
+  color: $white !important;
+}
+
+
+#task_priority_0 + label,
+#subtask_priority_0 + label {
+  color: $blue;
+}
+
+#task_priority_0:checked + label,
+#subtask_priority_0:checked + label {
+  background-color: $blue;
+  border-color: $blue;
+}
+
+
+#task_priority_1 + label,
+#subtask_priority_1 + label {
+  color: $orange;
+}
+
+#task_priority_1:checked + label,
+#subtask_priority_1:checked + label {
+  background-color: $orange;
+  border-color: $orange;
+}
+
+
+#task_priority_2 + label,
+#subtask_priority_2 + label {
+  color: $red;
+}
+
+#task_priority_2:checked + label,
+#subtask_priority_2:checked + label {
+  background-color: $red;
+  border-color: $red;
+}

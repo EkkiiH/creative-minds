@@ -4,4 +4,7 @@ class Subtask < ApplicationRecord
   validates :activity, uniqueness: true
   validates :activity, presence: true
   validates :priority, numericality: { in: 0..2 }
+
+  PRIORITIES = [['low', '0'], ['medium', '1'], ['high', '2']]
+
 end
