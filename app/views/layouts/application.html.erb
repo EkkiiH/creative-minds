@@ -15,7 +15,10 @@
   <body>
 <% if current_user %>
   <%= render 'shared/navbar' %>
-  <%= render 'shared/side_navbar' %>
+
+  <% unless devise_controller? %>
+    <%= render 'shared/side_navbar' %>
+  <% end %>
 
   <%= render "shared/flashes" %>
 

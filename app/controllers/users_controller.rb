@@ -8,6 +8,4 @@ class UsersController < ApplicationController
     authorize @user
     # raise
   end
-
-
 end
