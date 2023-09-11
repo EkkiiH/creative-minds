@@ -2,12 +2,16 @@
   table {
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgb(253, 253, 253);
     border: 1px solid rgb(221, 221, 221);
     border-collapse: collapse;
     box-sizing: border-box;
     max-width: 100%;
     width: 100%;
+  }
+
+  .calendar-title {
+    font-size: 3em;
   }
 
   tr {
@@ -100,6 +104,6 @@
   }
 
   .has-events {
-    background: #DDD;
+    background: #ea6666;
   }
 }
