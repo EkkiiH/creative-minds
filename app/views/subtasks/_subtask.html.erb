@@ -1,6 +1,11 @@
-<%= turbo_frame_tag dom_id(subtask), target: :_top, class: "ms-5 d-flex flex-row" do %>
+<%= turbo_frame_tag dom_id(subtask), target: :_top, class: "ms-4 d-flex flex-row" do %>
   <div class="ms-1 tasks d-flex align-items-center  subtask-arrow <%= 'done' if subtask.completion %>">
+    <%= link_to toggle_complete_subtask_path(subtask),
+                data: { turbo_method: :patch, turbo_frame: dom_id(subtask) },
+                class: 'btn font-skyblue px-2' do %>
+      <%# <i class="fa-regular fa-circle-check"></i> %>
     <div class="color-status me-3 task-<%= subtask.priority %>"></div>
+    <% end %>
     <bdi>
       <%= subtask.activity %>
       <p class='mb-0 task-due'>
@@ -8,11 +13,6 @@
       </p>
     </bdi>
     <div class="ms-3 d-flex align-items-center">
-      <%= link_to toggle_complete_subtask_path(subtask),
-                  data: { turbo_method: :patch, turbo_frame: dom_id(subtask) },
-                  class: 'btn font-skyblue px-2' do %>
-        <i class="fa-regular fa-circle-check"></i>
-      <% end %>
 
       <%= link_to edit_subtask_path(subtask), class: 'btn text-warning px-2' do %>
         <i class="fa-solid fa-pen-to-square"></i>
