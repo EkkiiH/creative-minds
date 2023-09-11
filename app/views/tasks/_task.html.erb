@@ -1,36 +1,53 @@
 <%# dom_id(task) => "task_1" %>
 <%# target: :_top means that requests inside this frame are not localized to this portion of page by default %>
 <%= turbo_frame_tag dom_id(task), target: :_top, data: {controller:"progress-bar"}, class: "ms-2 d-flex flex-row" do %>
-  <div class="d-flex flex-column">
+  <div class="d-flex flex-column" data-controller="tasks" data-action="dblclick->tasks#fire" data-id="<%= task.id %>">
     <div class="ms-2 tasks d-flex align-items-center <%= 'done' if task.completion %>">
-      <div class="color-status me-3 task-<%= task.priority %> "></div>
-      <bdi>
+        <%= link_to toggle_complete_task_path(task),
+                    data: { turbo_method: :patch, turbo_frame: dom_id(task) },
+                    class: 'btn font-skyblue px-2' do %>
+          <%# <i class="fa-regular fa-circle-check"></i> %>
+        <div class="color-status me-3 task-<%= task.priority %> "></div>
+        <% end %>
+      <bdi type="button" data-bs-toggle="collapse" href="#multiCollapse<%= task.id %>" role="button" aria-expanded="false" aria-controls="multiCollapse<%= task.id %>">
         <%= task.activity %>
+        <% if task.subtasks.count != 0 %>
+          <button class="task-chevron"><i class="fa-solid fa-chevron-right"></i></button>
+        <% end %>
         <p class='mb-0 task-due'>
           <small><i class="fa-regular fa-calendar"></i> <%= task.due_date.try(:strftime, "%d/%m/%Y") %></small>
         </p>
       </bdi>
-      <div class="ms-3 d-flex align-items-center">
-        <%= link_to toggle_complete_task_path(task),
-                    data: { turbo_method: :patch, turbo_frame: dom_id(task), action: "click->progress-bar#toggleTodo" },
-                    class: 'btn font-skyblue px-2' do %>
-          <i class="fa-regular fa-circle-check"></i>
-        <% end %>
-        <%= link_to edit_task_path(task), class: 'btn text-warning px-2' do %>
-          <i class="fa-solid fa-pen-to-square"></i>
-        <% end %>
-        <%= link_to task_path(task), class: 'btn text-danger px-2',
-                    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-          <i class="fa-solid fa-xmark"></i>
-        <% end %>
+      <div class="ms-3 d-flex align-items-center ">
+        <button id="menu-dropdown" class="btn txt-darkgray dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <%= link_to new_task_subtask_path(task), class: 'dropdown btn text-primary' do %>
+              <i class="fa-solid fa-plus"></i> add a sub-todo
+            <% end %>
+          </li>
+          <li>
+            <%= link_to edit_task_path(task), class: 'dropdown btn text-warning' do %>
+              <i class="fa-solid fa-pen-to-square"></i> edit todo
+            <% end %>
+          </li>
+          <li>
+            <%= link_to task_path(task), class: 'dropdown btn text-danger',
+                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+              <i class="fa-solid fa-xmark"></i> delete todo
+            <% end %>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="my-3 d-flex flex-column">
+
+    <div class="mb-3 d-flex flex-column">
       <% task.subtasks.each do |subtask|  %>
-        <%= render 'subtasks/subtask', subtask: subtask , class:"subtask-arrow" %>
-      <% end %>
-      <%= link_to new_task_subtask_path(task),class: 'btn font-turquoise' do %>
-        <i class="fa-solid fa-plus"></i>&nbsp add
+        <div class="collapse multi-collapse" id="multiCollapse<%= task.id %>">
+          <%= render 'subtasks/subtask', subtask: subtask , class:"subtask-arrow" %>
+        </div>
       <% end %>
     </div>
   </div>

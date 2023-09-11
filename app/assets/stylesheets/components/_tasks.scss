@@ -2,7 +2,6 @@
   text-decoration: none;
   font-size: 1em;
   line-height: 1.2em;
-  padding-top: 1rem;
 }
 
 .task-due {
@@ -41,4 +40,38 @@
   text-decoration: line-through;
   font-style: italic;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+#menu-dropdown {
+  color: $gray;
+}
+
+#menu-dropdown .dropdown-toggle::after {
+  content: none;
+}
+
+button#menu-dropdown:hover {
+  color: $black;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.task-chevron {
+  padding-left: 1rem;
+  font-size: 0.8em;
+}
+
+.done bdi .task-chevron{
+  text-decoration: none;
+  color: $dark-gray;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+
+button.task-chevron {
+  border: none;
+}
+
+.tasks:hover button.task-chevron i{
+  display: inline-block;
+  transform: rotate(90deg);
 }
