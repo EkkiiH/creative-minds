@@ -6,13 +6,15 @@ Rails.application.routes.draw do
   unauthenticated :user do
     root to: "pages#home"
   end
-  resources :users 
+  resources :users
   resources :plans do
     resources :tasks, only: %i[new create]
     member do
       get "plan_tasks"
     end
   end
+
+  get "/calendar", to: "calendar#index"
 
   post "/tasks", to: "tasks#create_without_plan", as: :create_without_plan
   get "/tasks/new", to: "tasks#new_without_plan", as: :new_without_plan
