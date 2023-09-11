@@ -9,28 +9,45 @@
           <%# <i class="fa-regular fa-circle-check"></i> %>
         <div class="color-status me-3 task-<%= task.priority %> "></div>
         <% end %>
-      <bdi type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <bdi type="button" data-bs-toggle="collapse" href="#multiCollapse<%= task.id %>" role="button" aria-expanded="false" aria-controls="multiCollapse<%= task.id %>">
         <%= task.activity %>
+        <% if task.subtasks.count != 0 %>
+          <button class="task-chevron"><i class="fa-solid fa-chevron-right"></i></button>
+        <% end %>
         <p class='mb-0 task-due'>
           <small><i class="fa-regular fa-calendar"></i> <%= task.due_date.try(:strftime, "%d/%m/%Y") %></small>
         </p>
       </bdi>
-      <div class="ms-3 d-flex align-items-center">
-        <%= link_to edit_task_path(task), class: 'btn text-warning px-2' do %>
-          <i class="fa-solid fa-pen-to-square"></i>
-        <% end %>
-        <%= link_to task_path(task), class: 'btn text-danger px-2',
-                    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-          <i class="fa-solid fa-xmark"></i>
-        <% end %>
+      <div class="ms-3 d-flex align-items-center ">
+        <button id="menu-dropdown" class="btn txt-darkgray dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <%= link_to new_task_subtask_path(task), class: 'dropdown btn text-primary' do %>
+              <i class="fa-solid fa-plus"></i> add a sub-todo
+            <% end %>
+          </li>
+          <li>
+            <%= link_to edit_task_path(task), class: 'dropdown btn text-warning' do %>
+              <i class="fa-solid fa-pen-to-square"></i> edit todo
+            <% end %>
+          </li>
+          <li>
+            <%= link_to task_path(task), class: 'dropdown btn text-danger',
+                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+              <i class="fa-solid fa-xmark"></i> delete todo
+            <% end %>
+          </li>
+        </ul>
       </div>
-      <%= link_to new_task_subtask_path(task),class: 'btn font-turquoise' do %>
-        <i class="fa-solid fa-plus"></i>&nbsp add
-      <% end %>
     </div>
+
     <div class="mb-3 d-flex flex-column">
       <% task.subtasks.each do |subtask|  %>
-        <div class="collapse" id="collapseExample"><%= render 'subtasks/subtask', subtask: subtask , class:"subtask-arrow" %></div>
+        <div class="collapse multi-collapse" id="multiCollapse<%= task.id %>">
+          <%= render 'subtasks/subtask', subtask: subtask , class:"subtask-arrow" %>
+        </div>
       <% end %>
     </div>
   </div>

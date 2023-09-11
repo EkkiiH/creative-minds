@@ -62,7 +62,7 @@
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
-.wrapper {
+.wrapper-sidebar {
     display: flex;
     width: 100%;
     align-items: stretch;
@@ -115,7 +115,7 @@ a[aria-expanded="true"] {
     background: $gray;
 }
 
-a[data-toggle="collapse"] {
+ a[data-toggle="collapse"] {
     position: relative;
 }
 
