@@ -1,8 +1,13 @@
 <%# dom_id(task) => "task_1" %>
 <%# target: :_top means that requests inside this frame are not localized to this portion of page by default %>
 <%= turbo_frame_tag dom_id(task), target: :_top, class: "ms-2 d-flex flex-row" do %>
-  <div class="d-flex flex-column">
+  <div class="d-flex flex-column" data-controller="tasks" data-action="dblclick->tasks#fire" data-id="<%= task.id %>">
     <div class="ms-2 tasks d-flex align-items-center <%= 'done' if task.completion %>">
+        <%= link_to toggle_complete_task_path(task),
+                    data: { turbo_method: :patch, turbo_frame: dom_id(task) },
+                    class: 'btn font-skyblue px-2' do %>
+          <i class="fa-regular fa-circle-check"></i>
+        <% end %>
       <div class="color-status me-3 task-<%= task.priority %> "></div>
       <bdi>
         <%= task.activity %>
@@ -11,11 +16,6 @@
         </p>
       </bdi>
       <div class="ms-3 d-flex align-items-center">
-        <%= link_to toggle_complete_task_path(task),
-                    data: { turbo_method: :patch, turbo_frame: dom_id(task) },
-                    class: 'btn font-skyblue px-2' do %>
-          <i class="fa-regular fa-circle-check"></i>
-        <% end %>
         <%= link_to edit_task_path(task), class: 'btn text-warning px-2' do %>
           <i class="fa-solid fa-pen-to-square"></i>
         <% end %>

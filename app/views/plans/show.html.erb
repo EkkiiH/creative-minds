@@ -16,9 +16,11 @@
     <% end %>
     </p>
     <div class="card-body">
-            <% @plan.tasks.each do |task|  %>
-              <div class="ms-1 my-3 d-flex flex-column"><%= render 'tasks/task', task: task %></div>
-            <% end %>
+      <% @plan.tasks.each do |task|  %>
+        <div class="ms-1 my-3 d-flex flex-column">
+          <%= render 'tasks/task', task: task %>
+        </div>
+      <% end %>
 
       <%= link_to new_plan_task_path(@plan),class: 'btn font-turquoise px-2' do %>
         <i class="fa-solid fa-plus">&nbsp new task</i>

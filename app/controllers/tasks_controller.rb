@@ -88,7 +88,12 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     authorize @task, :update?
     @task.update(completion: !@task.completion)
-    redirect_to plans_path
+
+    respond_to do |format|
+      format.html { redirect_to plans_path }
+      format.text { render partial: "task", task: @task, formats: [:html] }
+    end
+
   end
 
   def task_params
