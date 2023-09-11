@@ -7,9 +7,21 @@ class Task < ApplicationRecord
   validates :activity, presence: true
   validates :priority, numericality: { in: 0..2 }
 
+
+  # When a task is updated, then lets reoplace the progress bar
+  after_update_commit :update_progress_bar
+
   PRIORITIES = [['low', '0'], ['medium', '1'], ['high', '2']]
+
 
   def start_time
     self.due_date
+  end
+
+  def update_progress_bar
+    broadcast_replace_to plan,
+      target: "plan_#{plan.id}_progress",
+      partial: 'plans/progress',
+      locals: { plan: plan }
   end
 end
