@@ -1,4 +1,4 @@
-<div class="container-lg my-5  mx-3">
+<div class="container my-5 mx-3 py-5 px-3">
   <h1>My view on all my plans</h1>
 
 <%# **************************************** %>
@@ -16,19 +16,21 @@
     <div class="d-flex flex-row flex-wrap w-100">
       <% @plans.each do |plan| %>
         <div class="m-3 py-3" style="min-width:380px;max-width:380px">
-          <div class="progress-bar"
-             data-controller="progress-bar"
-             data-progress-bar-target="progress"
-             data-progress-bar-plans-value="<%=plan.tasks.size%>"
-             data-progress-bar-completedplans-value="<%=plan.tasks.select{|task| task.completion}.size%>">
-            <progress value="75" min="0" max="100"
-                    style="visibility:hidden;height:0;width:0;"
-                    data-progress-bar-target="circle">
-            75%
-            </progress>
+          <div class="ms-5 pb-3">
+            <div class="progress-bar"
+               data-controller="progress-bar"
+               data-progress-bar-target="progress"
+               data-progress-bar-plans-value="<%=plan.tasks.size%>"
+               data-progress-bar-completedplans-value="<%=plan.tasks.select{|task| task.completion}.size%>">
+              <progress value="75" min="0" max="100"
+                      style="visibility:hidden;height:0;width:0;"
+                      data-progress-bar-target="circle">
+              75%
+              </progress>
+            </div>
           </div>
 
-          <div class="mx-5">
+          <div class="mx-3">
             <h3>
               <%= link_to(plan_path(plan), class:'text-decoration-none text-dark')  do  %>
                 <%= plan.name %>
