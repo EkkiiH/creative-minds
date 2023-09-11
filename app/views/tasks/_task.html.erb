@@ -1,6 +1,6 @@
 <%# dom_id(task) => "task_1" %>
 <%# target: :_top means that requests inside this frame are not localized to this portion of page by default %>
-<%= turbo_frame_tag dom_id(task), target: :_top, class: "ms-2 d-flex flex-row" do %>
+<%= turbo_frame_tag dom_id(task), target: :_top, data: {controller:"progress-bar"}, class: "ms-2 d-flex flex-row" do %>
   <div class="d-flex flex-column">
     <div class="ms-2 tasks d-flex align-items-center <%= 'done' if task.completion %>">
       <div class="color-status me-3"></div>
@@ -12,7 +12,7 @@
       </bdi>
       <div class="ms-3 d-flex align-items-center">
         <%= link_to toggle_complete_task_path(task),
-                    data: { turbo_method: :patch, turbo_frame: dom_id(task) },
+                    data: { turbo_method: :patch, turbo_frame: dom_id(task), action: "click->progress-bar#toggleTodo" },
                     class: 'btn font-skyblue px-2' do %>
           <i class="fa-regular fa-circle-check"></i>
         <% end %>
