@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   unauthenticated :user do
     root to: "pages#home"
   end
-  resources :users
+  resources :users, only: [:show]
   resources :plans do
     resources :tasks, only: %i[new create]
     member do

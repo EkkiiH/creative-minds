@@ -14,12 +14,16 @@ User.destroy_all
 puts 'creating 2 users...'
 user1 = User.create!(
   email: "aaa@aaa.aaa",
-  password: "123456"
+  password: "123456",
+  first_name: "Stan",
+  last_name: "Lee"
 )
 
 user2 = User.create!(
   email: "bbb@bbb.bbb",
-  password: "123456"
+  password: "123456",
+  first_name: "Oprah",
+  last_name: "Winfrey"
 )
 puts 'Succesful creation of 2 users!'
 
