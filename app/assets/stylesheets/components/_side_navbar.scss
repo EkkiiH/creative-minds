@@ -12,14 +12,14 @@
   min-height: 5rem;
   font-size: 1.4rem;
   cursor: pointer;
-  background-color: $turquoise;
+  background-color: $gray;
   color: $white;
   padding: 1.4rem 1.2rem;
   border: none;
   z-index: 1;
 }
 .openbtn:hover {
-  background-color: $sky-blue;
+  background-color: $blue;
 }
 .side-navbar h3{
     text-shadow: 0 0 3px rgba(0,0,0,0.6);
@@ -83,13 +83,13 @@
 
 #sidebar .sidebar-header {
     padding: 0rem 1.4rem;
-    background: $turquoise;
+    background: $gray;
     min-height: 5rem;
 }
 
 #sidebar ul.components {
     padding: 1.2rem 0;
-    // border-bottom: 1px solid $turquoise;
+    // border-bottom: 1px solid $gray;
 }
 
 #sidebar ul p {
@@ -112,7 +112,7 @@
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: $turquoise;
+    background: $gray;
 }
 
 a[data-toggle="collapse"] {

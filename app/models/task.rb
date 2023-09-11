@@ -7,6 +7,8 @@ class Task < ApplicationRecord
   validates :activity, presence: true
   validates :priority, numericality: { in: 0..2 }
 
+  PRIORITIES = [['low', '0'], ['medium', '1'], ['high', '2']]
+
   def start_time
     self.due_date
   end
