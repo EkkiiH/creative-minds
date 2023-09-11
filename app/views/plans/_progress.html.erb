@@ -1,0 +1,20 @@
+<div id="plan_<%= plan.id %>_progress">
+  <%= turbo_stream_from plan %>
+  <div style="min-width:380px;max-width:380px"
+    data-controller="progress-bar"
+    data-progress-bar-plans-value="<%=plan.tasks.size%>"
+    data-progress-bar-completedplans-value="<%=plan.tasks.select{|task| task.completion}.size%>">
+    <div class="ms-5 pb-3">
+      <div class="progress-bar"
+
+        data-progress-bar-target="progress"
+        >
+        <progress value="75" min="0" max="100"
+                style="visibility:hidden;height:0;width:0;"
+                data-progress-bar-target="circle">
+        75%
+        </progress>
+      </div>
+    </div>
+  </div>
+</div>
