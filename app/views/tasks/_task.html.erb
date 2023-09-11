@@ -9,7 +9,7 @@
           <%# <i class="fa-regular fa-circle-check"></i> %>
         <div class="color-status me-3 task-<%= task.priority %> "></div>
         <% end %>
-      <bdi>
+      <bdi type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         <%= task.activity %>
         <p class='mb-0 task-due'>
           <small><i class="fa-regular fa-calendar"></i> <%= task.due_date.try(:strftime, "%d/%m/%Y") %></small>
@@ -24,13 +24,13 @@
           <i class="fa-solid fa-xmark"></i>
         <% end %>
       </div>
+      <%= link_to new_task_subtask_path(task),class: 'btn font-turquoise' do %>
+        <i class="fa-solid fa-plus"></i>&nbsp add
+      <% end %>
     </div>
     <div class="mb-3 d-flex flex-column">
       <% task.subtasks.each do |subtask|  %>
-        <%= render 'subtasks/subtask', subtask: subtask , class:"subtask-arrow" %>
-      <% end %>
-      <%= link_to new_task_subtask_path(task),class: 'btn font-turquoise' do %>
-        <i class="fa-solid fa-plus"></i>&nbsp add
+        <div class="collapse" id="collapseExample"><%= render 'subtasks/subtask', subtask: subtask , class:"subtask-arrow" %></div>
       <% end %>
     </div>
   </div>
