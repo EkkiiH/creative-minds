@@ -1,11 +1,13 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
-    <%= link_to(calendar.url_for_previous_view) do %>
-    <%= image_tag('back.svg', alt: 'back', size: "40") %>
-    <% end %>
     <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+  </div>
+  <div>
+    <%= link_to(calendar.url_for_previous_view) do %>
+        <%= image_tag('back.svg', alt: 'back', size: "40") %>
+    <% end %>
     <%= link_to(calendar.url_for_next_view) do %>
-    <%= image_tag('foward.svg', alt: 'foward', size: "40") %>
+        <%= image_tag('foward.svg', alt: 'forward', size: "40") %>
     <% end %>
   </div>
 
@@ -22,11 +24,21 @@
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>
-            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
-                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
-              <% else %>
-                <% passed_block.call day.strftime('%d/%m/%y'), sorted_events.fetch(day, []) %>
+            <% if day == Date.today %>
+              <%= content_tag :td, class: "today #{calendar.td_classes_for(day)}" do %>
+                <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                  <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+                <% else %>
+                  <% passed_block.call day.strftime('%d/%m/%y'), sorted_events.fetch(day, []) %>
+                <% end %>
+              <% end %>
+            <% else %>
+              <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+                <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                  <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+                <% else %>
+                  <% passed_block.call day.strftime('%d/%m/%y'), sorted_events.fetch(day, []) %>
+                <% end %>
               <% end %>
             <% end %>
           <% end %>
