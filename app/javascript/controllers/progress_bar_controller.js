@@ -4,11 +4,10 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets=["circle", "progress"]
   static values={
-    plans:Number,
-    completedplans:Number
+    plans: Number,
+    completedplans: Number
   }
   connect() {
-    console.log(this)
     const percentage =  Math.ceil((this.completedplansValue/this.plansValue)*100)
     this.circleTarget.innerHTML = percentage
     this.circleTarget.value = percentage

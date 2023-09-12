@@ -11,8 +11,8 @@
       collection_wrapper_class: 'priority-wrapper',
       item_wrapper_class: 'priority-item',
       input_html: {class: 'priority-selector'},
-      collection: Task::PRIORITIES %>  <%= f.input :due_date, label: false, placeholder: "When is it due?", input_html: { class: 'bg-white fw-light rounded-5 px-4', data: { controller: "datepicker" } } %>
-  <div class="m-2 align-self-center">
+      collection: Task::PRIORITIES %>
+ <%= f.input :due_date, as: :string, label: 'Pick a due date:',input_html: { class: 'bg-white fw-light rounded-5 px-4', data: { controller: "flatpickr" } } %>
     <%= f.submit value: 'Apply', class: 'btn btn-primary px-3 rounded-5' %>
   </div>
   <div class="m-2">

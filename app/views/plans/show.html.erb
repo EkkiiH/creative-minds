@@ -1,13 +1,24 @@
+<%# List of all plans %>
+<div>
+  <% current_user.plans.each do |plan| %>
+    <% if plan == @plan %>
+      <p class="btn btn-primary"><%= plan.name %></p>
+    <% else %>
+      <%= link_to plan.name, plan, class: 'btn' %>
+    <% end %>
+  <% end %>
+</div>
+
+<%# Details of current plan (@plan) %>
 <div class="container my-5 mx-3 p-3">
   <h1><%= @plan.name %></h1>
-  <div class="progress-bar" data-controller="progress-bar" data-progress-bar-target="progress" data-progress-bar-plans-value="<%=@plan.tasks.size%>"data-progress-bar-completedplans-value="<%=@plan.tasks.select{|task| task.completion}.size%>">
-    <progress value="75" min="0" max="100" style="visibility:hidden;height:0;width:0;" data-progress-bar-target="circle">75%</progress>
+  <%= render 'plans/progress', plan: @plan %>
   </div>
 
   <div class="m-3">
-    <p>
+    <div class="dropdown">
       <%= @plan.description %>
-      <button id="menu-dropdown" class="btn txt-darkgray dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button id="dropdown" class="btn txt-darkgray dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="fa-solid fa-ellipsis-vertical"></i>
       </button>
       <ul class="dropdown-menu">
@@ -24,7 +35,7 @@
           <% end %>
         </li>
       </ul>
-    </p>
+    </div>
     <div class="card-body">
       <% @plan.tasks.each do |task|  %>
         <div class="ms-1 my-3 d-flex flex-column">

@@ -16,15 +16,32 @@
     <div class="d-flex flex-row flex-wrap w-100">
       <% @plans.each do |plan| %>
         <div class="m-3 py-3">
-          <div style="min-width:380px;max-width:380px">
+          <div style="max-width:380px">
             <div class="ms-5 pb-3">
               <%= render 'plans/progress', plan: plan %>
             </div>
 
             <div class="mx-3">
-              <h3>
-                <%= link_to(plan_path(plan), class:'text-decoration-none text-dark')  do  %>
-                  <%= plan.name %>
+                  <h3><%= link_to plan.name, plan_path(plan), class:'text-decoration-none text-dark'  %></h3>
+                  <div class="dropdown">
+                    <button id="dropdown-<%= plan.id %>" class="btn txt-darkgray dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-target="#dropdown-<%= plan.id %>" aria-expanded="false">
+                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <%= link_to edit_plan_path(plan), data:{turbo: false}, class: 'btn text-warning' do %>
+                          <i class="fa-solid fa-pen-to-square"></i> edit plan
+                        <% end %>
+                      </li>
+                      <li>
+                        <%= link_to plan_path(plan),
+                                    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                                    class: 'btn text-danger' do %>
+                          <i class="fa-solid fa-xmark"></i> delete plan
+                        <% end %>
+                      </li>
+                    </ul>
+                  </div>
                   <%= link_to edit_plan_path(plan), data:{turbo: false}, class: 'btn text-warning' do %>
                       <i class="fa-solid fa-pen-to-square"></i>
                   <% end %>
@@ -33,9 +50,9 @@
                                 class: 'btn text-danger px-2' do %>
                       <i class="fa-solid fa-xmark"></i>
                   <% end %>
-                <% end %>
-              </h3>
-              <p><%= plan.description %></p>
+
+              <div><%= plan.description %></div>
+
               <% if plan.start_date == plan.end_date %>
               <p class="fw-light"><small>Date: <%= plan.start_date.try(:strftime, "%d/%m/%Y") %></small></p>
             <% else %>

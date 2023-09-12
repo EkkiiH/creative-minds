@@ -8,7 +8,7 @@ export default class extends Controller {
   }
   toggleNav() {
     console.log('hello');
-    this.sidenavbarTarget.classList.toggle("inactive");
+    this.sidenavbarTarget.classList.toggle("sidenavbar-inactive");
   }
 }
 
