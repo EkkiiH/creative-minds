@@ -1,15 +1,3 @@
-// .font-turquoise {
-// color: $red;
-// }
-
-// .font-skyblue {
-// color: $blue;
-// }
-
-// .font-lightgreen {
-// color: $orange;
-// }
-
 .txt-darkgray {
 color: $dark-gray;
 }
@@ -37,9 +25,19 @@ color: $dark-gray;
   height: 28px ;
 }
 
+.add-h3 {
+  height: 26px ;
+}
+
+.regular-deepblue{
+  font: 24px;
+  color: $deep-blue;
+}
+
 .link-foward {
   color: $deep-blue;
   font-weight: 600;
+  align-self:center;
 }
 
 .link-foward:hover {
@@ -49,4 +47,12 @@ color: $dark-gray;
 .arrow-foward {
   height: 28px;
   padding-right: 0.8rem;
+}
+
+.horizontal-grey:not(:first-child) {
+  border-top: 1px solid $medium-gray;
+}
+
+.vertical-grey:not(:first-child) {
+  border-left: 1px solid $medium-gray;
 }
