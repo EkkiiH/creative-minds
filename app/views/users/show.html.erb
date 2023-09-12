@@ -22,7 +22,7 @@
         <h3 class="title-h3"><%= image_tag "arrow.svg", class: "arrow-h3" %>Your plans on going</h3>
         <div class="d-flex flex-row flex-wrap ">
           <% @plans[0..2].each do |plan| %>
-            <div class="m-3 text-center">
+            <div class="my-3 px-3 text-center vertical-grey">
               <%= link_to(plan_path(plan), class:'text-decoration-none text-dark') do %>
                 <div class="m-3 d-flex flex-wrap">
                   <div class="progress-bar" data-controller="progress-bar" data-progress-bar-target="progress" data-progress-bar-plans-value="<%= plan.tasks.size %>" data-progress-bar-completedplans-value="<%= plan.tasks.select { |task| task.completion }.size %>">

@@ -2,6 +2,7 @@
   text-decoration: none;
   font-size: 1em;
   line-height: 1.2em;
+  min-width: 320px;
 }
 
 .task-due {
@@ -40,10 +41,15 @@
   background: $light-gray !important;
 }
 
-.done bdi{
+.done div{
   text-decoration: line-through;
+  text-align: left !important;
   font-style: italic;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.task-text {
+  min-width: 230px;
 }
 
 .task-chevron {
@@ -52,7 +58,7 @@
   background-color: $white;
 }
 
-.done bdi .task-chevron{
+.done div .task-chevron{
   text-decoration: none;
   color: $dark-gray;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
@@ -69,7 +75,6 @@ button.task-chevron {
 
 #menu-dropdown{
   color: $gray;
-
 }
 button#menu-dropdown {
   visibility: hidden;
