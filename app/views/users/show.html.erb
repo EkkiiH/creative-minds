@@ -1,5 +1,5 @@
 <div class="container d-flex">
-  <div>
+  <div class="col-8">
 
 
     <div class="m-3 mb-3 white-background">
@@ -18,44 +18,50 @@
 
 
 
-      <div class="m-3 mb-3 d-flex flex-wrap white-background">
-        <% @plans[0..2].each do |plan| %>
-          <div class="m-3 text-center">
-            <%= link_to(plan_path(plan), class:'text-decoration-none text-dark') do %>
-              <div class="m-3 d-flex flex-wrap">
-                <div class="progress-bar" data-controller="progress-bar" data-progress-bar-target="progress" data-progress-bar-plans-value="<%= plan.tasks.size %>" data-progress-bar-completedplans-value="<%= plan.tasks.select { |task| task.completion }.size %>">
-                  <progress value="75" min="0" max="100" style="visibility:hidden;height:0;width:0;" data-progress-bar-target="circle">75%</progress>
+      <div class="m-3 mb-3 white-background">
+        <h3 class="title-h3"><%= image_tag "arrow.svg", class: "arrow-h3" %>Your plans on going</h3>
+        <div class="d-flex flex-row flex-wrap ">
+          <% @plans[0..2].each do |plan| %>
+            <div class="m-3 text-center">
+              <%= link_to(plan_path(plan), class:'text-decoration-none text-dark') do %>
+                <div class="m-3 d-flex flex-wrap">
+                  <div class="progress-bar" data-controller="progress-bar" data-progress-bar-target="progress" data-progress-bar-plans-value="<%= plan.tasks.size %>" data-progress-bar-completedplans-value="<%= plan.tasks.select { |task| task.completion }.size %>">
+                    <progress value="75" min="0" max="100" style="visibility:hidden;height:0;width:0;" data-progress-bar-target="circle">75%</progress>
+                  </div>
                 </div>
-              </div>
-              <h5 class="fw-bold"><%= plan.name %></h5>
-            <% end %>
-          </div>
-        <% end %>
+                <h5 class="regular-deepblue"><%= plan.name %></h5>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
         <%= link_to plans_path, class: 'btn link-foward' do %>
           <%= image_tag "foward.svg", class: "arrow-foward" %>see more
         <% end %>
       </div>
 
       </div>
-    </div>
 
 
 
 <%# ************  start todo list *********** %>
-  <div>
-    <div class="m-3 white-background">
-      <% @tasks.each do |task|  %>
-        <% if task.completion == false %>
-          <%= render 'tasks/task', task: task %>
+    <div class="col-4">
+      <div class="m-3 white-background">
+        <div>
+          <h3 class="title-h3"><%= image_tag "arrow.svg", class: "arrow-h3" %>Next to-do</h3>
+          <%= link_to new_without_plan_path,class: 'btn font-turquoise px-2 ms-3' do %>
+            <i class="fa-solid fa-plus"></i>&nbsp new task
+          <% end %>
+          <% @tasks.each do |task|  %>
+            <% if task.completion == false %>
+              <%= render 'tasks/task', task: task %>
+            <% end %>
+          <% end %>
+        </div>
+        <%= link_to tasks_path, class: 'btn link-foward' do %>
+          <%= image_tag "foward.svg", class: "arrow-foward" %>see more
         <% end %>
-      <% end %>
-      <%= link_to new_without_plan_path,class: 'btn font-turquoise px-2 ms-3' do %>
-        <i class="fa-solid fa-plus"></i>&nbsp new task
-      <% end %>
+      </div>
     </div>
-    <%= link_to tasks_path, class: 'btn font-skyblue px-2' do %>
-      <i class="fa-solid fa-chevron-right">&nbsp see more</i>
-    <% end %>
   </div>
 
   <%# ************  end todo list  ************ %>
