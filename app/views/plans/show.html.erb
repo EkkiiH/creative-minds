@@ -1,56 +1,74 @@
 <%# List of all plans %>
-<div>
+<%# <div>
   <% current_user.plans.each do |plan| %>
-    <% if plan == @plan %>
-      <p class="btn btn-primary"><%= plan.name %></p>
-    <% else %>
-      <%= link_to plan.name, plan, class: 'btn' %>
-    <% end %>
-  <% end %>
-</div>
+    <%# <% if plan == @plan %> <%#%>
+      <%# <p class="btn btn-primary"><%= plan.name %><%#</p> %>
+    <%# <% else %> <%#%>
+      <%# <%= link_to plan.name, plan, class: 'btn' %><%# %>
+    <%# <% end %><%# %>
+  <%# <% end %> <%#%>
+<%# </div> %> <%#%>
 
 <%# Details of current plan (@plan) %>
-<div class="container my-5 mx-3 p-3">
-  <h1><%= @plan.name %></h1>
-  <%= render 'plans/progress', plan: @plan %>
-  </div>
+<div class="container d-flex">
+  <div class="d-flex flex-row mt-3 mb-5 mx-3 white-background">
+    <div class="me-4">
+      <h1 class="mb-3 mb-3 title-h1"><%= @plan.name %></h1>
 
-  <div class="m-3">
-    <div class="dropdown">
-      <%= @plan.description %>
-      <button id="dropdown" class="btn txt-darkgray dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="fa-solid fa-ellipsis-vertical"></i>
-      </button>
-      <ul class="dropdown-menu">
-        <li>
-          <%= link_to edit_plan_path(@plan), class: 'btn text-warning' do %>
-            <i class="fa-solid fa-pen-to-square"></i> edit plan
-          <% end %>
-        </li>
-        <li>
-          <%= link_to plan_path(@plan),
-                      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                      class: 'btn text-danger' do %>
-            <i class="fa-solid fa-xmark"></i> delete plan
-          <% end %>
-        </li>
-      </ul>
-    </div>
-    <div class="card-body">
-      <% @plan.tasks.each do |task|  %>
-        <div class="ms-1 my-3 d-flex flex-column">
-          <%= render 'tasks/task', task: task %>
+      <div class="d-flex align-items-center">
+        <%= link_to edit_plan_path(@plan), class: 'btn title-h3' do %>
+          <%= image_tag "add.svg", class: "add-h3 me-3" %>edit plan
+        <% end %>
+
+        <%= link_to plan_path(@plan), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn' do %>
+          <%= image_tag "delete.svg", class: "delete-p" %> delete plan
+        <% end %>
+      </div>
+
+      <div class="d-flex flex-row mt-5">
+        <div class="bigger-progress mt-3 me-5" >
+          <%= render 'plans/progress', plan: @plan %>
         </div>
-      <% end %>
+        <div>
+          <h3 class="title-h3"><%= image_tag "arrow.svg", class: "arrow-h3" %>Description</h3>
+          <div class="vertical-blue-line mt-3 ms-5 ps-4"><%= @plan.description %></div>
+        </div>
+      </div>
 
-      <%= link_to new_plan_task_path(@plan),class: 'btn font-turquoise px-2' do %>
-        <i class="fa-solid fa-plus">&nbsp new task</i>
+
+      <div class="d-flex flex-row justify-content-evenly mt-5">
+        <div>
+          <h3 class="title-h3"><%= image_tag "arrow.svg", class: "arrow-h3" %>Goal</h3>
+          <div class=" mt-3 ps-4"><h5 class="regular-deepblue">Started the</h5><p class="ms-3"><%= @plan.start_date.try(:strftime, "%d %B %Y") %></p></div>
+          <div class=" mt-3 ps-4"><h5 class="regular-deepblue">Finish line</h5><p class="ms-3"><%= @plan.end_date.try(:strftime, "%d %B %Y") %></p></div>
+        </div>
+        <div class="vertical-grey ms-4 me-3 ps-5">
+          <h3 class="title-h3"><%= image_tag "arrow.svg", class: "arrow-h3" %>Important to-do</h3>
+            <% @plan.tasks.order(:due_date)[0..1].each do |task|  %>
+              <% if task.completion == false %>
+                <%= render 'tasks/task', task: task %>
+              <% end %>
+            <% end %>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+    <div class="vertical-grey ms-4 me-3 mt-5 ps-5">
+      <h3 class="title-h3 mb-5"><%= image_tag "arrow.svg", class: "arrow-h3" %>Next to-do</h3>
+      <%= link_to new_plan_task_path(@plan), class: 'btn tasks d-flex align-items-between margin-left-42 align-items-center pb-4' do %>
+        <%= image_tag "add.svg", class: "add-h3 me-3" %>
+        <div class=" me-3 new-task"></div>
+      <bdi type="button" data-bs-toggle="collapse"  role="button" aria-expanded="false">new task</bdi>
+      <% end %>
+      <% @plan.tasks.order(:due_date).each do |task|  %>
+          <%= render 'tasks/task', task: task %>
       <% end %>
     </div>
-  </div>
-  <div class="m-2">
-  <%= link_to plans_path, class: 'btn font-skyblue px-2' do %>
-    <i class="fa-solid fa-chevron-left">&nbsp back</i>
-  <% end %>
+
+
   </div>
 </div>

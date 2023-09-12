@@ -17,3 +17,9 @@
   color: $black;
   // content: "75%";
 }
+
+
+.bigger-progress .progress-bar {
+  width: 225px;
+  height: 225px;
+}
