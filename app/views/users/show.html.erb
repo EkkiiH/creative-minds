@@ -17,10 +17,10 @@
   <%# *******  start last plans created ******* %>
     <div class="m-3 d-flex flex-wrap">
       <% @plans[0..2].each do |plan| %>
-        <div class="m-3 text-center" style="width:140px">
+        <div class="m-3 text-center">
           <%= link_to(plan_path(plan), class:'text-decoration-none text-dark') do %>
             <div class="m-3 d-flex flex-wrap">
-              <div class="progress-bar" data-controller="progress-bar" data-progress-bar-target="progress" data-progress-bar-plans-value="<%=plan.tasks.size%>"data-progress-bar-completedplans-value="<%=plan.tasks.select{|task| task.completion}.size%>">
+              <div class="progress-bar" data-controller="progress-bar" data-progress-bar-target="progress" data-progress-bar-plans-value="<%= plan.tasks.size %>" data-progress-bar-completedplans-value="<%= plan.tasks.select { |task| task.completion }.size %>">
                 <progress value="75" min="0" max="100" style="visibility:hidden;height:0;width:0;" data-progress-bar-target="circle">75%</progress>
               </div>
             </div>

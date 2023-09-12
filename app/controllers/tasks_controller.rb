@@ -50,7 +50,7 @@ class TasksController < ApplicationController
     @task.user = current_user
     authorize @task
     if @task.save
-      redirect_to plan_tasks_plan_path(@task.plan)
+      redirect_to plan_path(@task.plan)
     else
       render :new, status: :unprocessable_entity
     end

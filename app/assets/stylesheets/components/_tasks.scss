@@ -42,19 +42,6 @@
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
-#menu-dropdown {
-  color: $gray;
-}
-
-#menu-dropdown .dropdown-toggle::after {
-  content: none;
-}
-
-button#menu-dropdown:hover {
-  color: $black;
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-}
-
 .task-chevron {
   padding-left: 1rem;
   font-size: 0.8em;
@@ -66,7 +53,6 @@ button#menu-dropdown:hover {
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
-
 button.task-chevron {
   border: none;
 }
@@ -74,4 +60,23 @@ button.task-chevron {
 .tasks:hover button.task-chevron i{
   display: inline-block;
   transform: rotate(90deg);
+}
+
+#menu-dropdown{
+  color: $gray;
+
+}
+button#menu-dropdown {
+  visibility: hidden;
+}
+
+button#menu-dropdown:hover {
+  color: $black;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  visibility: visible;
+}
+
+.dropdown-toggle::after {
+  display: none;
+  content: none;
 }
