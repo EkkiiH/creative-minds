@@ -7,10 +7,10 @@
       <div class="m-3">
 
         <h3 class="title-h3"><%= image_tag "arrow.svg", class: "arrow-h3" %>What would you like to do ?</h3>
-        <div class="m-3 font-turquoise p-3">
-          <i class="fa-solid fa-plus">&nbsp</i>
+        <div class="m-3 p-3">
           <%= simple_form_for  new_plan_path do |f| %>
-            <%= f.input :plan.name, label: false, placeholder: "Add your new plan name", input_html: { class: 'bg-white fw-light rounded-5 px-4', style: 'width:80%'} %>
+            <%= f.input :plan.name, label: false, placeholder: "Add your new plan name", input_html: { class: 'bg-white fw-light rounded-5 px-4', style: 'width:60%'} %>
+            <%= image_tag "add.svg", class: "add-h3" %>
           <% end %>
         </div>
       </div>
