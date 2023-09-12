@@ -36,7 +36,7 @@ class TasksController < ApplicationController
     @task.user = current_user
     authorize @task
     if @task.save
-      redirect_to plans_path
+      redirect_to plan_path(@task.plan)
     else
       render :new, status: :unprocessable_entity
     end
@@ -50,7 +50,7 @@ class TasksController < ApplicationController
     @task.user = current_user
     authorize @task
     if @task.save
-      redirect_to plan_tasks_plan_path(@task.plan)
+      redirect_to plan_path(@task.plan)
     else
       render :new, status: :unprocessable_entity
     end
@@ -68,11 +68,9 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @plan = Plan.find(params[:plan_id])
-    @task.plan = @plan
     authorize @task
     if @task.update(task_params)
-      redirect_to plan_tasks_plan_path(@task.plan)
+      redirect_to plan_path(@task.plan)
     else
       render :edit, status: :unprocessable_entity
     end

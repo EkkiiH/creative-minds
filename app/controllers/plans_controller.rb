@@ -1,4 +1,5 @@
 class PlansController < ApplicationController
+
   def index
     @plans = Plan.all
     @plans = policy_scope(Plan)
@@ -12,12 +13,14 @@ class PlansController < ApplicationController
   def new
     @plan = Plan.new
     authorize @plan
+    @name_query = params[:name_query]
   end
 
   def create
     @plan = Plan.new(plan_params)
     @plan.user = current_user
     authorize @plan
+    @name_query = params[:name_query]
     if @plan.save
       redirect_to plans_path(@plans)
     else
