@@ -1,4 +1,5 @@
 // Import your components CSS files here.
+@import "backgrounds";
 @import "alert";
 @import "avatar";
 @import "form_legend_clear";
@@ -7,6 +8,7 @@
 @import "button";
 @import "side_navbar";
 @import "tasks";
-@import "fonts";
+@import "style_fonts";
+@import "progress_bar";
 @import "simple_calendar";
 @import "shadows";
