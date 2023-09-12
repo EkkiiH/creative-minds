@@ -1,9 +1,9 @@
 <div class="container mt-5 text-center">
-<%= month_calendar(events: @tasks) do |date, tasks| %>
+<%= month_calendar(events: @tasks) do |date, events| %>
       <%= date %>
-      <% tasks.each do |task| %>
+      <% events.each do |event| %>
       <div>
-        <%= task.activity %>
+        <%= event.activity %>
       </div>
       <% end %>
     <% end %>

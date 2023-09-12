@@ -3,7 +3,7 @@
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
     background-color: rgb(253, 253, 253);
-    border: 1px solid rgb(221, 221, 221);
+    border: 2px solid rgb(221, 221, 221);
     border-collapse: collapse;
     box-sizing: border-box;
     max-width: 100%;
@@ -51,6 +51,11 @@
 
   .calendar-heading nav {
     display: inline-block;
+  }
+
+
+  .calendar-heading a {
+    text-decoration: none !important;
   }
 
   .day {
@@ -104,6 +109,6 @@
   }
 
   .has-events {
-    background: #ea6666;
+    background: #f59652;
   }
 }
