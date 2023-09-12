@@ -8,11 +8,15 @@
   font-size: 0.9em;
 }
 
-.tasks .color-status {
+.new-task, .tasks .color-status {
   width: 15px;
   height: 38px;
   border-radius: 6px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.margin-left-42 {
+  margin-left: -42px;
 }
 
 .task-0 {
@@ -45,6 +49,7 @@
 .task-chevron {
   padding-left: 1rem;
   font-size: 0.8em;
+  background-color: $white;
 }
 
 .done bdi .task-chevron{

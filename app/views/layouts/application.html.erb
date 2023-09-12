@@ -14,19 +14,19 @@
   </head>
 
   <body>
-<% if current_user %>
-  <%= render 'shared/navbar' %>
+  <% if current_user %>
+    <%= render 'shared/navbar' %>
 
-  <% unless devise_controller? %>
-    <%= render 'shared/side_navbar' %>
-  <% end %>
+    <% unless devise_controller? %>
+      <%= render 'shared/side_navbar' %>
+    <% end %>
 
-  <%= render "shared/flashes" %>
+    <%= render "shared/flashes" %>
 
   <% else %>
   <!-- navbar for Pages -->
   <%#= if request.referrer == "/" %>
-  <%= render "shared/navbar" %>
+    <%= render "shared/navbar" %>
 
   <% end %>
 

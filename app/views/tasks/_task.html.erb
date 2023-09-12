@@ -1,13 +1,12 @@
 <%# dom_id(task) => "task_1" %>
 <%# target: :_top means that requests inside this frame are not localized to this portion of page by default %>
-<%= turbo_frame_tag dom_id(task), target: :_top, class: "ms-2 d-flex flex-row" do %>
-  <div class="d-flex flex-column" data-controller="tasks" data-action="dblclick->tasks#fire" data-id="<%= task.id %>">
-    <div class="ms-2 tasks d-flex align-items-center <%= 'done' if task.completion %>">
+<%= turbo_frame_tag dom_id(task), target: :_top, class: "horizontal-grey pt-3 d-flex flex-row" do %>
+  <div class="d-flexflex-column" data-controller="tasks" data-action="dblclick->tasks#fire" data-id="<%= task.id %>">
+    <div class="tasks d-flex align-items-between <%= 'done' if task.completion %>">
         <%= link_to toggle_complete_task_path(task),
-                    data: { turbo_method: :patch, turbo_frame: dom_id(task) },
-                    class: 'btn font-skyblue px-2' do %>
+                    data: { turbo_method: :patch, turbo_frame: dom_id(task) }, class: 'btn' do %>
           <%# <i class="fa-regular fa-circle-check"></i> %>
-        <div class="color-status me-3 task-<%= task.priority %> "></div>
+          <div class="color-status me-3 task-<%= task.priority %> "></div>
         <% end %>
       <bdi type="button" data-bs-toggle="collapse" href="#multiCollapse<%= task.id %>" role="button" aria-expanded="false" aria-controls="multiCollapse<%= task.id %>">
         <%= task.activity %>
@@ -18,8 +17,8 @@
           <small><i class="fa-regular fa-calendar"></i> <%= task.due_date.try(:strftime, "%d/%m/%Y") %></small>
         </p>
       </bdi>
-      <div class="ms-3 d-flex align-items-center dropdown ">
-        <button id="dropdown" class="btn txt-darkgray dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <div class="ms-3 dropdown ">
+        <button id="dropdown" class="btn txt-darkgray dropdown-toggle flex-shrink-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa-solid fa-ellipsis-vertical"></i>
         </button>
         <ul class="dropdown-menu">
