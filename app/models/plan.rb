@@ -4,5 +4,5 @@ class Plan < ApplicationRecord
   has_many :subtasks, through: :tasks, dependent: :destroy
   validates :name, uniqueness: true
   validates :name, presence: true
-  validates :description, length: { maximum: 140, too_long: 'maxiumum 140 characters are allowed' }
+  validates :description, length: { maximum: 240, too_long: 'maxiumum 240 characters are allowed' }
 end

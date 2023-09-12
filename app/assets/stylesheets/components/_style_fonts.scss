@@ -21,6 +21,19 @@ color: $dark-gray;
   color: $deep-blue;
 }
 
+.horizontal-grey:not(:first-child) {
+  border-top: 1px solid $medium-gray;
+}
+
+.vertical-grey:not(:first-child) {
+  border-left: 1px solid $medium-gray;
+}
+
+.vertical-blue-line {
+  border-left: 4px solid $blue;
+
+}
+
 .arrow-h3 {
   height: 28px ;
 }
@@ -49,10 +62,6 @@ color: $dark-gray;
   padding-right: 0.8rem;
 }
 
-.horizontal-grey:not(:first-child) {
-  border-top: 1px solid $medium-gray;
-}
-
-.vertical-grey:not(:first-child) {
-  border-left: 1px solid $medium-gray;
+.delete-p {
+  height: 22px;
 }
