@@ -1,7 +1,7 @@
 <%= turbo_frame_tag dom_id(subtask), target: :_top, class: "ms-4 d-flex flex-row" do %>
   <div class="ms-3 tasks d-flex align-items-center  subtask-arrow <%= 'done' if subtask.completion %>">
     <%= link_to toggle_complete_subtask_path(subtask),
-                data: { turbo_method: :patch, turbo_frame: dom_id(subtask) },
+                data: { turbo_method: :patch, turbo_frame: dom_id(subtask.task) },
                 class: 'btn font-skyblue px-2' do %>
       <%# <i class="fa-regular fa-circle-check"></i> %>
     <div class="color-status me-3 task-<%= subtask.priority %>"></div>
