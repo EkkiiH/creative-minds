@@ -156,6 +156,12 @@
     padding-top: 0.3rem;
 }
 
+#sidebar ul li.active>a:hover,
+#sidebar a[aria-expanded="true"]:hover{
+  background: linear-gradient(180deg, $blue 5%, rgb(132, 208, 244) 100%);
+}
+
+
 
 #sidebar a[data-toggle="collapse"] {
     position: relative;

@@ -1,57 +1,62 @@
-<div class="container my-5 mx-3 p-5 d-flex">
-  <div class="m-3 me-5">
-    <h1 class="mb-5">Hello, <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
+<div class="container d-flex">
+  <div>
 
-  <%# ********  start add an idea/plan ******** %>
-    <div class="m-5">
-      <h3>What would you like to do ?</h3>
-      <div class="m-3 font-turquoise p-3">
-        <i class="fa-solid fa-plus">&nbsp</i>
-        <%= simple_form_for  new_plan_path do |f| %>
-          <%= f.input :plan.name, label: false, placeholder: "Add your new plan name", input_html: { class: 'bg-white fw-light rounded-5 px-4', style: 'width:80%'} %>
-        <% end %>
-      </div>
-    </div>
-  <%# *********  end add an idea/plan ********* %>
 
-  <%# *******  start last plans created ******* %>
-    <div class="m-3 d-flex flex-wrap">
-      <% @plans[0..2].each do |plan| %>
-        <div class="m-3 text-center">
-          <%= link_to(plan_path(plan), class:'text-decoration-none text-dark') do %>
-            <div class="m-3 d-flex flex-wrap">
-              <div class="progress-bar" data-controller="progress-bar" data-progress-bar-target="progress" data-progress-bar-plans-value="<%= plan.tasks.size %>" data-progress-bar-completedplans-value="<%= plan.tasks.select { |task| task.completion }.size %>">
-                <progress value="75" min="0" max="100" style="visibility:hidden;height:0;width:0;" data-progress-bar-target="circle">75%</progress>
-              </div>
-            </div>
-            <h5 class="fw-bold"><%= plan.name %></h5>
+    <div class="m-3 mb-3 white-background">
+      <h1 class="mb-3 title-h1">Hello, <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
+      <div class="m-3">
+
+        <h3 class="title-h3"><%= image_tag "arrow.svg", class: "arrow-h3" %>What would you like to do ?</h3>
+        <div class="m-3 font-turquoise p-3">
+          <i class="fa-solid fa-plus">&nbsp</i>
+          <%= simple_form_for  new_plan_path do |f| %>
+            <%= f.input :plan.name, label: false, placeholder: "Add your new plan name", input_html: { class: 'bg-white fw-light rounded-5 px-4', style: 'width:80%'} %>
           <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
-      <%= link_to plans_path, class: 'btn font-skyblue px-2' do %>
-        <i class="fa-solid fa-chevron-right">&nbsp see more</i>
-      <% end %>
-  <%# ********  end last plans created ******** %>
-  </div>
 
 
-  <%# ************  start todo list *********** %>
-    <div class="m-3">
-      <div class="card-body">
-        <% @tasks.each do |task|  %>
-          <% if task.completion == false %>
-            <%= render 'tasks/task', task: task %>
-          <% end %>
+
+      <div class="m-3 mb-3 d-flex flex-wrap white-background">
+        <% @plans[0..2].each do |plan| %>
+          <div class="m-3 text-center">
+            <%= link_to(plan_path(plan), class:'text-decoration-none text-dark') do %>
+              <div class="m-3 d-flex flex-wrap">
+                <div class="progress-bar" data-controller="progress-bar" data-progress-bar-target="progress" data-progress-bar-plans-value="<%= plan.tasks.size %>" data-progress-bar-completedplans-value="<%= plan.tasks.select { |task| task.completion }.size %>">
+                  <progress value="75" min="0" max="100" style="visibility:hidden;height:0;width:0;" data-progress-bar-target="circle">75%</progress>
+                </div>
+              </div>
+              <h5 class="fw-bold"><%= plan.name %></h5>
+            <% end %>
+          </div>
         <% end %>
-        <%= link_to new_without_plan_path,class: 'btn font-turquoise px-2 ms-3' do %>
-          <i class="fa-solid fa-plus"></i>&nbsp new task
+        <%= link_to plans_path, class: 'btn link-foward' do %>
+          <%= image_tag "foward.svg", class: "arrow-foward" %>see more
         <% end %>
       </div>
-      <%= link_to tasks_path, class: 'btn font-skyblue px-2' do %>
-        <i class="fa-solid fa-chevron-right">&nbsp see more</i>
+
+      </div>
+    </div>
+
+
+
+<%# ************  start todo list *********** %>
+  <div>
+    <div class="m-3 white-background">
+      <% @tasks.each do |task|  %>
+        <% if task.completion == false %>
+          <%= render 'tasks/task', task: task %>
+        <% end %>
+      <% end %>
+      <%= link_to new_without_plan_path,class: 'btn font-turquoise px-2 ms-3' do %>
+        <i class="fa-solid fa-plus"></i>&nbsp new task
       <% end %>
     </div>
+    <%= link_to tasks_path, class: 'btn font-skyblue px-2' do %>
+      <i class="fa-solid fa-chevron-right">&nbsp see more</i>
+    <% end %>
   </div>
+
   <%# ************  end todo list  ************ %>
 </div>
