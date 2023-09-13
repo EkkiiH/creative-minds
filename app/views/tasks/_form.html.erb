@@ -1,5 +1,5 @@
 <%= simple_form_for([@plan, @task]) do |f| %>
-  <%= f.input :activity, label: false, placeholder: "What is the task", input_html: { class: 'bg-white fw-light rounded-5 px-4'} %>
+  <%= f.input :activity, label: false, placeholder: "What is the task", input_html: { class: 'input-placeholder'} %>
 
   <%= f.input :priority,
       as: :radio_buttons,
@@ -9,7 +9,7 @@
       input_html: {class: 'priority-selector'},
       collection: Task::PRIORITIES %>
 
-  <%= f.input :due_date, as: :string, label: 'Pick a due date:',input_html: { class: 'bg-white fw-light rounded-5 px-4', data: { controller: "flatpickr", flatpickr_start_value: @plan.start_date, flatpickr_end_value: @plan.end_date } } %>
+  <%= f.input :due_date, as: :string, label: 'Pick a due date:',input_html: { class: 'input-placeholder', data: { controller: "flatpickr", flatpickr_start_value: @plan.start_date, flatpickr_end_value: @plan.end_date } } %>
   <div class="m-2 align-self-center">
     <%= f.submit value: 'Apply', class: 'btn btn-primary px-3 rounded-5' %>
   </div>
