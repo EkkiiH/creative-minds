@@ -1,6 +1,7 @@
     <div class="wrapper-sidebar " data-controller="togglenavbar">
         <!-- Sidebar  -->
         <nav id="sidebar" data-togglenavbar-target="sidenavbar" class="sidenavbar-inactive">
+          <div class="whitetop"></div>
             <div class="sidebar-header">
               <%= link_to authenticated_root_path, class:"side-navbar d-flex flex-row align-items-start text-decoration-none text-white" do %>
               <h3><i class="fa-solid fa-house"></i>&nbsp Board</h3>
@@ -13,10 +14,11 @@
               </li>
               <li><%= link_to 'My Calendar', calendar_path %>
               </li>
+              <li><%= link_to 'List of plans', plans_path %>
+              </li>
               <li class="active">
-                <a href="#homeSubmenu" class="dropdown-toggle" data-toggle="collapse" aria-expanded="false">Plans</a>
+                <a href="#homeSubmenu" class="dropdown-toggle " data-toggle="collapse" aria-expanded="false">My plans<br><i class="fa-solid fa-angle-down"></i></a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
-                  <li class= 'sidebar-plan'><%= link_to 'Plan list', plans_path %></li>
                   <li><%= link_to '+ add new plan', new_plan_path %></li>
                   <% @plans.each do |plan| %>
                     <li><%= link_to plan.name, plan_path(plan) %></li>
@@ -32,8 +34,9 @@
                 </li> %>
             </ul>
         </nav>
-        <div id="main">
+        <div id="main" data-togglenavbar-target="sidenavbarmain">
           <button class="openbtn" data-action="click->togglenavbar#toggleNav"><i class="fa-solid fa-caret-right"></i></button>
+          <div class="openbtn-after"></div>
         </div>
     <script src="script.js">
     </script>

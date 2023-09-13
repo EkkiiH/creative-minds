@@ -1,0 +1,67 @@
+.txt-darkgray {
+color: $dark-gray;
+}
+
+.title-h1 {
+  display: inline-block;
+  font-size: 48px;
+  font-weight: 900;
+  color: $blue;
+  background-image:
+  -webkit-linear-gradient(0deg, $blue 10%, $red 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-h3 {
+  font-weight: 500;
+  font-size: 32px;
+  color: $deep-blue;
+}
+
+.horizontal-grey:not(:first-child) {
+  border-top: 1px solid $medium-gray;
+}
+
+.vertical-grey:not(:first-child) {
+  border-left: 1px solid $medium-gray;
+}
+
+.vertical-blue-line {
+  border-left: 4px solid $blue;
+
+}
+
+.arrow-h3 {
+  height: 28px ;
+}
+
+.add-h3 {
+  height: 26px ;
+}
+
+.regular-deepblue{
+  font: 24px;
+  color: $deep-blue;
+}
+
+.link-foward {
+  color: $deep-blue;
+  font-weight: 600;
+  align-self:center;
+}
+
+.link-foward:hover {
+  color: $orange;
+}
+
+.arrow-foward {
+  height: 28px;
+  padding-right: 0.8rem;
+}
+
+.delete-p {
+  height: 22px;
+}

@@ -11,7 +11,7 @@ export default class extends Controller {
     const percentage =  Math.ceil((this.completedplansValue/this.plansValue)*100)
     this.circleTarget.innerHTML = percentage
     this.circleTarget.value = percentage
-    this.progressTarget.style.background = `radial-gradient(closest-side, white 79%, transparent 80% 100%),conic-gradient(#03A9F4, #AB47BC, #F59652 ${percentage}%, #BBB 0)`
+    this.progressTarget.style.background = `radial-gradient(closest-side, white 69%, transparent 70%, rgba(0,0,0,0.05) 70%, transparent 78%),conic-gradient(#03A9F4, #AB47BC, #F59652 ${percentage}%, #EEF0F3 ${percentage + 6 }%)`
     this.progressTarget.setAttribute("percentage", `${percentage}%`)
   }
 

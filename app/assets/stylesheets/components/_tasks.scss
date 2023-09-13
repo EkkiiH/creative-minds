@@ -2,17 +2,22 @@
   text-decoration: none;
   font-size: 1em;
   line-height: 1.2em;
+  min-width: 320px;
 }
 
 .task-due {
   font-size: 0.9em;
 }
 
-.tasks .color-status {
+.new-task, .tasks .color-status {
   width: 15px;
   height: 38px;
   border-radius: 6px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.margin-left-42 {
+  margin-left: -42px;
 }
 
 .task-0 {
@@ -36,18 +41,24 @@
   background: $light-gray !important;
 }
 
-.done bdi{
+.done div{
   text-decoration: line-through;
+  text-align: left !important;
   font-style: italic;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.task-text {
+  min-width: 230px;
 }
 
 .task-chevron {
   padding-left: 1rem;
   font-size: 0.8em;
+  background-color: $white;
 }
 
-.done bdi .task-chevron{
+.done div .task-chevron{
   text-decoration: none;
   color: $dark-gray;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
@@ -64,7 +75,6 @@ button.task-chevron {
 
 #menu-dropdown{
   color: $gray;
-
 }
 button#menu-dropdown {
   visibility: hidden;
