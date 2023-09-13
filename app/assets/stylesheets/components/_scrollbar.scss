@@ -1,0 +1,43 @@
+.scrollbar {
+  overflow: auto;
+  padding-top: 4rem;
+  // white-space: nowrap;
+  width: 1320px;
+  height: 440px;
+}
+
+.scroll-height {
+  height: 700px;
+}
+
+// .scrollbar::after {
+//   content: '';
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   width: 40px; /* adjust as needed */
+//   background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+//   pointer-events: none; /* ensures the gradient doesn't interfere with any interactions */
+// }
+
+::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+::-webkit-scrollbar-thumb {
+  background-color: $light-gray; /* color of the scroll thumb */
+  border-radius: 6px; /* radius of the top outer corner of the scroll thumb */
+  border: 2px solid $white; /* creates padding around scroll thumb */
+}
+::-webkit-scrollbar-track {
+  background: $white; /* color of the tracking area */
+}
+
+/* "thin" or "none" or "auto" */
+.scrollable-div {
+  scrollbar-width: thin;
+}
+
+.scrollable-div {
+  scrollbar-color: $red $white; /* thumb and track color, respectively */
+}
