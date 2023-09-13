@@ -1,15 +1,14 @@
     <div class="wrapper-sidebar " data-controller="togglenavbar">
         <!-- Sidebar  -->
         <nav id="sidebar" data-togglenavbar-target="sidenavbar" class="sidenavbar-inactive">
-          <div class="whitetop"></div>
+          <div class="side-container">
+            <div class="whitetop"></div>
             <div class="sidebar-header">
               <%= link_to authenticated_root_path, class:"side-navbar d-flex flex-row align-items-start text-decoration-none text-white" do %>
-              <h3><i class="fa-solid fa-house"></i>&nbsp Board</h3>
+              <h3>Home</h3>
               <% end %>
             </div>
-
             <ul class="list-unstyled components">
-
               <li><%= link_to 'To-do list', tasks_path %>
               </li>
               <li><%= link_to 'My Calendar', calendar_path %>
@@ -25,18 +24,13 @@
                   <% end %>
                 </ul>
               </li>
-            <%# <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="#" class="download">Download source</a>
-                </li>
-                <li>
-                    <a href="#" class="article">Back to article</a>
-                </li> %>
             </ul>
+          </div>
+
         </nav>
         <div id="main" data-togglenavbar-target="sidenavbarmain">
           <button class="openbtn" data-action="click->togglenavbar#toggleNav"><i class="fa-solid fa-caret-right"></i></button>
-          <div class="openbtn-after"></div>
+              <%# <div class="openbtn-after"></div> %>
         </div>
     <script src="script.js">
     </script>

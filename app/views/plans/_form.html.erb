@@ -3,12 +3,12 @@
   <%= f.input :description, label: false, placeholder: "Describe it briefly", input_html: { class: 'input-placeholder', rows: 4, cols:  6} %>
   <%= f.input :start_date, as: :string, label: 'Pick a starting date:',input_html: { class: 'input-placeholder', data: { controller: "datepicker" } } %>
   <%= f.input :end_date, as: :string, label: 'And your goal date:',input_html: { class: 'input-placeholder', id: "end_date"} %>
-  <div class="m-2">
+  <div class="mt-4 d-flex flex-row justify-content-around">
 
-    <%= link_to url_for(:back), class: 'btn link-foward' do %>
-      <%= image_tag "back.svg", class: "arrow-foward" %>back
+    <%= link_to url_for(:back), class: 'btn btn-red' do %>
+      cancel
     <% end %>
 
-    <%= f.submit value: 'Apply', class: 'btn btn-primary px-3 rounded-5' %>
+    <%= f.submit value: 'Apply', class: 'btn btn-blue' %>
   </div>
 <% end %>

@@ -1,6 +1,5 @@
 <%= simple_form_for([@task, @subtask]) do |f| %>
-  <%= f.input :activity, label: false, placeholder: "What is the subtask", input_html: { class: 'bg-white fw-light rounded-5 px-4'} %>
-
+  <%= f.input :activity, label: false, placeholder: "What is the subtask", input_html: { class: 'input-placeholder'} %>
   <%= f.input :priority,
     as: :radio_buttons,
     collection_wrapper_tag: 'div',
@@ -9,13 +8,11 @@
     input_html: {class: 'priority-selector'},
     collection: Subtask::PRIORITIES %>
 
- <%= f.input :due_date, as: :string, label: 'Pick a due date:',input_html: { class: 'bg-white fw-light rounded-5 px-4', data: { controller: "flatpickr" } } %>
-  <div class="m-2 align-self-center">
-    <%= f.submit value: 'Apply', class: 'btn btn-primary px-3 rounded-5' %>
-  </div>
-  <div class="m-2">
-    <%= link_to url_for(:back), class: 'btn font-skyblue px-2' do %>
-      <i class="fa-solid fa-chevron-left">&nbsp back</i>
+ <%= f.input :due_date, as: :string, label: 'Pick a due date:',input_html: { class: 'input-placeholder', data: { controller: "flatpickr" } } %>
+  <div class="mt-4 d-flex flex-row justify-content-around">
+    <%= link_to url_for(:back), class: 'btn btn-red' do %>
+      cancel
     <% end %>
+    <%= f.submit value: 'Apply', class: 'btn btn-blue' %>
   </div>
 <% end %>
