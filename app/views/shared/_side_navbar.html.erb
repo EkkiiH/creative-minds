@@ -14,10 +14,11 @@
               </li>
               <li><%= link_to 'My Calendar', calendar_path %>
               </li>
+              <li><%= link_to 'List of plans', plans_path %>
+              </li>
               <li class="active">
-                <a href="#homeSubmenu" class="dropdown-toggle " data-toggle="collapse" aria-expanded="false">Plans<br><i class="fa-solid fa-angle-down"></i></a>
+                <a href="#homeSubmenu" class="dropdown-toggle " data-toggle="collapse" aria-expanded="false">My plans<br><i class="fa-solid fa-angle-down"></i></a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
-                  <li class= 'sidebar-plan'><%= link_to 'Plan list', plans_path %></li>
                   <li><%= link_to '+ add new plan', new_plan_path %></li>
                   <% @plans.each do |plan| %>
                     <li><%= link_to plan.name, plan_path(plan) %></li>
