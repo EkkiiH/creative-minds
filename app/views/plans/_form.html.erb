@@ -1,8 +1,8 @@
 <%= simple_form_for @plan, class: 'form' do |f| %>
   <%= f.input :name, label: false, placeholder: "What is your plan?", input_html: {  value: @name_query, class: 'input-placeholder'}  %>
   <%= f.input :description, label: false, placeholder: "Describe it briefly", input_html: { class: 'input-placeholder', rows: 4, cols:  6} %>
-  <%= f.input :start_date, as: :string, label: 'Pick a starting date:',input_html: { class: 'input-placeholder', data: { controller: "datepicker" } } %>
-  <%= f.input :end_date, as: :string, label: 'And your goal date:',input_html: { class: 'input-placeholder', id: "end_date"} %>
+  <%= f.input :start_date, as: :string, label: 'Pick a starting date:', input_html: { class: 'input-placeholder', data: { controller: "datepicker" } } %>
+  <%= f.input :end_date, as: :string, label: 'And your goal date:', input_html: { class: 'input-placeholder', id: "end_date"} %>
   <div class="mt-4 d-flex flex-row justify-content-around">
 
     <%= link_to url_for(:back), class: 'btn btn-red' do %>

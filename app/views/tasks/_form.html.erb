@@ -8,7 +8,7 @@
       input_html: {class: 'priority-selector'},
       collection: Task::PRIORITIES %>
 
-  <%= f.input :due_date, as: :string, label: 'Pick a due date:',input_html: { class: 'input-placeholder', data: { controller: "flatpickr" } } %>
+  <%= f.input :due_date, as: :string, label: 'Pick a due date:', input_html: { class: 'input-placeholder', data: { controller: "flatpickr", flatpickr_start_value: @plan.start_date, flatpickr_end_value: @plan.end_date } } %>
   <div class="mt-4 d-flex flex-row justify-content-around">
     <%= link_to url_for(:back), class: 'btn btn-red' do %>
       cancel
