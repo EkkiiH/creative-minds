@@ -41,7 +41,7 @@ plan2 = Plan.new(
   name: "Create a website",
   description: "Creating a website to have an internet presence ",
   start_date: Time.strptime('11/01/2023 09:00', '%m/%d/%Y %H:%M'),
-  end_date: "",
+  end_date: Time.strptime('03/01/2024 09:00', '%m/%d/%Y %H:%M'),
   user: user1
 )
 plan2.save!
@@ -58,8 +58,8 @@ plan3.save!
 plan4 = Plan.new(
   name: "Having a interior garden",
   description: "Decorate the interior of the house with plants",
-  start_date: "",
-  end_date: Time.strptime('09/27/2023 09:00', '%m/%d/%Y %H:%M'),
+  start_date: Time.strptime('9/27/2023 09:00', '%m/%d/%Y %H:%M'),
+  end_date: Time.strptime('12/27/2023 09:00', '%m/%d/%Y %H:%M'),
   user: user2
 )
 plan4.save!
@@ -67,7 +67,7 @@ plan4.save!
 plan5 = Plan.new(
   name: "Write a novel",
   description: "Bring all my ideas into a big action novel",
-  start_date: "",
+  start_date: Time.strptime('09/01/2024 00:00', '%m/%d/%Y %H:%M'),
   end_date: Time.strptime('09/01/2025 00:00', '%m/%d/%Y %H:%M'),
   user: user2
 )
@@ -78,7 +78,7 @@ plan5.save!
 plan6 = Plan.new(
   name: "Attend a Wedding",
   description: "John Doe Wedding in Paris",
-  start_date: "",
+  start_date: Time.strptime('04/01/2024 00:00', '%m/%d/%Y %H:%M'),
   end_date: Time.strptime('05/01/2024 00:00', '%m/%d/%Y %H:%M'),
   user: user2
 )
@@ -87,7 +87,7 @@ plan6.save!
 plan7 = Plan.new(
   name: "Join Le Wagon Bootcamp",
   description: "Data Science Bootcamp",
-  start_date: "",
+  start_date: Time.strptime('04/01/2024 00:00', '%m/%d/%Y %H:%M'),
   end_date: Time.strptime('06/01/2024 00:00', '%m/%d/%Y %H:%M'),
   user: user2
 )
@@ -96,8 +96,8 @@ plan7.save!
 plan8 = Plan.new(
   name: "Christmas Party at Office",
   description: "No office hours, but full-day party",
-  start_date: "",
-  end_date: Time.strptime('11/1/2023 00:00', '%m/%d/%Y %H:%M'),
+  start_date: Time.strptime('11/1/2023 00:00', '%m/%d/%Y %H:%M'),
+  end_date: Time.strptime('12/20/2023 00:00', '%m/%d/%Y %H:%M'),
   user: user1
 )
 plan8.save!
@@ -105,8 +105,8 @@ plan8.save!
 plan9 = Plan.new(
   name: "New Year Celebration with extended Family",
   description: "It is held at Uncle Sam House",
-  start_date: "",
-  end_date: Time.strptime('1/12/2023 00:00', '%m/%d/%Y %H:%M'),
+  start_date: Time.strptime('1/1/2024 00:00', '%m/%d/%Y %H:%M'),
+  end_date: Time.strptime('1/12/2024 00:00', '%m/%d/%Y %H:%M'),
   user: user1
 )
 plan9.save!
@@ -128,7 +128,7 @@ task2 = Task.new(
   activity: "Buy the luggages",
   completion: true,
   priority: 1,
-  due_date: Time.strptime('10/01/2024 09:00', '%m/%d/%Y %H:%M'),
+  due_date: Time.strptime('06/30/2024 09:00', '%m/%d/%Y %H:%M'),
   plan: plan1
 )
 task2.save!
@@ -155,7 +155,7 @@ task5 = Task.new(
   activity: "gather some inspiration",
   completion: false,
   priority: 0,
-  due_date: "",
+  due_date: Time.strptime('10/01/2023 09:00', '%m/%d/%Y %H:%M'),
   plan: plan3
 )
 task5.save!
@@ -164,16 +164,16 @@ task6 = Task.new(
   activity: "buy some plants",
   completion: false,
   priority: 2,
-  due_date: Time.strptime('09/24/2023 14:00', '%m/%d/%Y %H:%M'),
+  due_date: Time.strptime('9/27/2023 09:00', '%m/%d/%Y %H:%M'),
   plan: plan4
 )
 task6.save!
 
 task7 = Task.new(
-  activity: "Make some space in the living room",
+  activity: "Space in the living room",
   completion: true,
   priority: 1,
-  due_date: Time.strptime('09/20/2023 14:00', '%m/%d/%Y %H:%M'),
+  due_date: Time.strptime('9/27/2023 09:00', '%m/%d/%Y %H:%M'),
   plan: plan4
 )
 task7.save!
@@ -182,25 +182,25 @@ task8 = Task.new(
   activity: "make a schema of the content",
   completion: true,
   priority: 0,
-  due_date: "",
+  due_date: Time.strptime('09/01/2024 00:00', '%m/%d/%Y %H:%M'),
   plan: plan5
 )
 task8.save!
 
 task9 = Task.new(
-  activity: "Set a meeting with some folks to interview",
+  activity: "Meetings for the interview",
   completion: false,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('09/01/2024 00:00', '%m/%d/%Y %H:%M'),
   plan: plan5
 )
 task9.save!
 
 task10 = Task.new(
-  activity: "Rent a place in the wood to write during the holidays",
+  activity: "Rent a place in the wood",
   completion: true,
   priority: 2,
-  due_date: "",
+  due_date: Time.strptime('09/01/2024 00:00', '%m/%d/%Y %H:%M'),
   plan: plan5
 )
 task10.save!
@@ -211,7 +211,7 @@ task11 = Task.new(
   activity: "Buy a formal party gown",
   completion: false,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('04/01/2024 00:00', '%m/%d/%Y %H:%M'),
   plan: plan6
 )
 task11.save!
@@ -221,7 +221,7 @@ task12 = Task.new(
   activity: "Buy a wedding gift for Joe",
   completion: true,
   priority: 2,
-  due_date: "",
+  due_date: Time.strptime('04/01/2024 00:00', '%m/%d/%Y %H:%M'),
   plan: plan6
 )
 task12.save!
@@ -231,27 +231,27 @@ task13 = Task.new(
   activity: "Pass the interview and quiz",
   completion: false,
   priority: 0,
-  due_date: "",
+  due_date: Time.strptime('04/01/2024 00:00', '%m/%d/%Y %H:%M'),
   plan: plan7
 )
 task13.save!
 
 # Join Le Wagon Bootcamp
 task14 = Task.new(
-  activity: "Preparation and study for the quiz",
+  activity: "Preparation for the quiz",
   completion: true,
   priority: 0,
-  due_date: "",
+  due_date: Time.strptime('04/01/2024 00:00', '%m/%d/%Y %H:%M'),
   plan: plan7
 )
 task14.save!
 
 # Christmas Party at Office
 task15 = Task.new(
-  activity: "Buy a gift for the gift exchange",
+  activity: "Buy a gift for the exchange",
   completion: false,
   priority: 0,
-  due_date: "",
+  due_date: Time.strptime('11/1/2023 00:00', '%m/%d/%Y %H:%M'),
   plan: plan8
 )
 task15.save!
@@ -261,17 +261,17 @@ task16 = Task.new(
   activity: "Buy a Christmas Sweater",
   completion: false,
   priority: 2,
-  due_date: "",
+  due_date: Time.strptime('11/1/2023 00:00', '%m/%d/%Y %H:%M'),
   plan: plan8
 )
 task16.save!
 
 # New Year Celebration with extended Family
 task17 = Task.new(
-  activity: "food and drinks for the potluck",
+  activity: "food drinks for the potluck",
   completion: true,
   priority: 0,
-  due_date: "",
+  due_date: Time.strptime('1/1/2024 00:00', '%m/%d/%Y %H:%M'),
   plan: plan9
 )
 task17.save!
@@ -281,7 +281,7 @@ task18 = Task.new(
   activity: "prepare a gift for my niece",
   completion: false,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('1/1/2024 00:00', '%m/%d/%Y %H:%M'),
   plan: plan9
 )
 task18.save!
@@ -293,10 +293,10 @@ puts 'create 22 subtasks...'
 
 # Buy the tickets
 Subtask.create!(
-  activity: "Renew Passport before buy the tickets",
+  activity: "Renew Passport",
   completion: false,
   priority: 0,
-  due_date: "",
+  due_date: Time.strptime('07/01/2024 09:00', '%m/%d/%Y %H:%M'),
   task: task1
 )
 
@@ -305,7 +305,7 @@ Subtask.create!(
   activity: "buy the luggage protector",
   completion: false,
   priority: 2,
-  due_date: "",
+  due_date: Time.strptime('07/01/2024 09:00', '%m/%d/%Y %H:%M'),
   task: task2
 )
 
@@ -314,25 +314,25 @@ Subtask.create!(
   activity: "buy luggage tags",
   completion: true,
   priority: 2,
-  due_date: "",
+  due_date: Time.strptime('07/01/2024 09:00', '%m/%d/%Y %H:%M'),
   task: task2
 )
 
 # Buy a host and domain
 Subtask.create!(
-  activity: "Domain and host price comparison",
+  activity: "Domain price comparison",
   completion: false,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('11/15/2023 09:00', '%m/%d/%Y %H:%M'),
   task: task3
 )
 
 # Create a design
 Subtask.create!(
-  activity: "buy some pictures from unsplash +",
+  activity: "buy pictures from unsplash +",
   completion: true,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('11/15/2023 09:00', '%m/%d/%Y %H:%M'),
   task: task4
 )
 
@@ -341,7 +341,7 @@ Subtask.create!(
   activity: "do some surveys for the thema",
   completion: false,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('10/01/2023 09:00', '%m/%d/%Y %H:%M'),
   task: task5
 )
 
@@ -350,7 +350,7 @@ Subtask.create!(
   activity: "buy plant pots",
   completion: true,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('9/27/2023 09:00', '%m/%d/%Y %H:%M'),
   task: task6
 )
 
@@ -359,7 +359,7 @@ Subtask.create!(
   activity: "buy shovels",
   completion: false,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('9/27/2023 09:00', '%m/%d/%Y %H:%M'),
   task: task6
 )
 
@@ -368,7 +368,7 @@ Subtask.create!(
   activity: "do decluttering first",
   completion: false,
   priority: 0,
-  due_date: "",
+  due_date: Time.strptime('9/27/2023 09:00', '%m/%d/%Y %H:%M'),
   task: task7
 )
 
@@ -377,25 +377,25 @@ Subtask.create!(
   activity: "find some inspirations",
   completion: false,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('09/01/2024 00:00', '%m/%d/%Y %H:%M'),
   task: task8
 )
 
 # Set a meeting with some folks to interview
 Subtask.create!(
-  activity: "cancel my meeting with friends",
+  activity: "cancel meetings with friends",
   completion: false,
   priority: 0,
-  due_date: "",
+  due_date: Time.strptime('09/01/2024 00:00', '%m/%d/%Y %H:%M'),
   task: task9
 )
 
 # Rent a place in the wood to write during the holidays
 Subtask.create!(
-  activity: "find a website for the rental",
+  activity: "website for the rental",
   completion: false,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('09/01/2024 00:00', '%m/%d/%Y %H:%M'),
   task: task10
 )
 
@@ -404,7 +404,7 @@ Subtask.create!(
   activity: "buy a strapless bra",
   completion: true,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('04/01/2024 00:00', '%m/%d/%Y %H:%M'),
   task: task11
 )
 
@@ -413,7 +413,7 @@ Subtask.create!(
   activity: "buy a matching clutch",
   completion: false,
   priority: 2,
-  due_date: "",
+  due_date: Time.strptime('04/01/2024 00:00', '%m/%d/%Y %H:%M'),
   task: task11
 )
 
@@ -422,16 +422,16 @@ Subtask.create!(
   activity: "ask Johnson for the idea",
   completion: false,
   priority: 2,
-  due_date: "",
+  due_date: Time.strptime('04/01/2024 00:00', '%m/%d/%Y %H:%M'),
   task: task12
 )
 
 # Pass the interview and quiz
 Subtask.create!(
-  activity: "watch interview tutorial from youtube",
+  activity: "watch interview tutorial",
   completion: true,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('04/01/2024 00:00', '%m/%d/%Y %H:%M'),
   task: task13
 )
 
@@ -440,7 +440,7 @@ Subtask.create!(
   activity: "pay Udacity",
   completion: false,
   priority: 0,
-  due_date: "",
+  due_date: Time.strptime('04/01/2024 00:00', '%m/%d/%Y %H:%M'),
   task: task14
 )
 
@@ -449,7 +449,7 @@ Subtask.create!(
   activity: "pay Codecademy",
   completion: false,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('04/01/2024 00:00', '%m/%d/%Y %H:%M'),
   task: task14
 )
 
@@ -458,7 +458,7 @@ Subtask.create!(
   activity: "buy a Christmas card",
   completion: true,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('11/1/2023 00:00', '%m/%d/%Y %H:%M'),
   task: task15
 )
 
@@ -468,7 +468,7 @@ Subtask.create!(
   activity: "buy a matching shawl",
   completion: true,
   priority: 1,
-  due_date: "",
+  due_date: Time.strptime('11/1/2023 00:00', '%m/%d/%Y %H:%M'),
   task: task16
 )
 
@@ -477,7 +477,7 @@ Subtask.create!(
   activity: "buy turkey and sausages",
   completion: true,
   priority: 0,
-  due_date: "",
+  due_date: Time.strptime('1/1/2024 00:00', '%m/%d/%Y %H:%M'),
   task: task17
 )
 
@@ -486,7 +486,7 @@ Subtask.create!(
   activity: "buy a gift wrapper",
   completion: false,
   priority: 0,
-  due_date: "",
+  due_date: Time.strptime('1/1/2024 00:00', '%m/%d/%Y %H:%M'),
   task: task18
 )
 
