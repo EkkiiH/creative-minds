@@ -12,8 +12,7 @@
             item_wrapper_class: 'priority-item',
             input_html: {class: 'priority-selector'},
             collection: Task::PRIORITIES %>
-        <%= f.input :due_date, as: :string, label: 'Pick a due date:', input_html: { class: 'input-placeholder', data: { controller: "flatpickr" } } %>
-
+        <%= f.input :due_date, as: :string, label: 'Pick a due date:', input_html: { class: 'input-placeholder', data: { controller: "flatpickr-special" } } %>
         <div class="mt-4 d-flex flex-row justify-content-around">
           <%= link_to url_for(:back), class: 'btn btn-red' do %>
             cancel
