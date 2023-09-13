@@ -15,6 +15,23 @@ class Task < ApplicationRecord
     end
   end
 
+  # def date_range
+  #   if plan.start_date.present? && plan.end_date.present? && due_date.present?
+  #     unless (plan.start_date..plan.end_date).include?(due_date)
+  #       errors.add(:due_date, 'must be within the start and end date of plan')
+  #     end
+  #   end
+  # end
+
+  # def date_range
+  #   if plan.present? && plan.start_date.present? && plan.end_date.present? && due_date.present?
+  #     unless (plan.start_date..plan.end_date).include?(due_date)
+  #       errors.add(:due_date, 'must be within the start and end date of plan')
+  #     end
+  #   end
+  # end
+
+
   # When a task is updated, then lets reoplace the progress bar
   after_update_commit :update_progress_bar
   after_save_commit :complete_all_subtasks
@@ -36,5 +53,10 @@ class Task < ApplicationRecord
       target: "plan_#{plan.id}_progress",
       partial: 'plans/progress',
       locals: { plan: plan }
+    broadcast_replace_to "#task_#{self.id}",
+      target: nil,
+      targets: "#task_#{self.id}",
+      partial: 'tasks/task',
+      locals: { task: self }
   end
 end
