@@ -9,7 +9,7 @@
     input_html: {class: 'priority-selector'},
     collection: Subtask::PRIORITIES %>
 
- <%= f.input :due_date, as: :string, label: 'Pick a due date:',input_html: { class: 'bg-white fw-light rounded-5 px-4', data: { controller: "flatpickr" } } %>
+ <%= f.input :due_date, as: :string, label: 'Pick a due date:',input_html: { class: 'bg-white fw-light rounded-5 px-4', data: { controller: "flatpickr", flatpickr_start_value: @task.plan.start_date, flatpickr_end_value: @task.plan.end_date} } %>
   <div class="m-2 align-self-center">
     <%= f.submit value: 'Apply', class: 'btn btn-primary px-3 rounded-5' %>
   </div>
