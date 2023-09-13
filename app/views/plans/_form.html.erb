@@ -1,14 +1,14 @@
 <%= simple_form_for @plan, class: 'form' do |f| %>
-  <%= f.input :name, label: false, placeholder: "What is your plan?", input_html: {  value: @name_query, class: 'bg-white fw-light rounded-5 px-4'}  %>
-  <%= f.input :description, label: false, placeholder: "Describe it briefly", input_html: { class: 'bg-white fw-light rounded-5 px-4', rows: 4 } %>
-  <%= f.input :start_date, as: :string, label: 'Pick a starting date:',input_html: { class: 'bg-white fw-light rounded-5 px-4', data: { controller: "datepicker" } } %>
-  <%= f.input :end_date, as: :string, label: 'And your goal date:',input_html: { class: 'bg-white fw-light rounded-5 px-4', id: "end_date"} %>
-  <div class="m-2 align-self-center">
-    <%= f.submit value: 'Apply', class: 'btn btn-primary px-3 rounded-5' %>
-  </div>
+  <%= f.input :name, label: false, placeholder: "What is your plan?", input_html: {  value: @name_query, class: 'input-placeholder'}  %>
+  <%= f.input :description, label: false, placeholder: "Describe it briefly", input_html: { class: 'input-placeholder', rows: 4, cols:  6} %>
+  <%= f.input :start_date, as: :string, label: 'Pick a starting date:',input_html: { class: 'input-placeholder', data: { controller: "datepicker" } } %>
+  <%= f.input :end_date, as: :string, label: 'And your goal date:',input_html: { class: 'input-placeholder', id: "end_date"} %>
   <div class="m-2">
-    <%= link_to url_for(:back), class: 'btn font-skyblue px-2' do %>
-      <i class="fa-solid fa-chevron-left">&nbsp back</i>
+
+    <%= link_to url_for(:back), class: 'btn link-foward' do %>
+      <%= image_tag "back.svg", class: "arrow-foward" %>back
     <% end %>
+
+    <%= f.submit value: 'Apply', class: 'btn btn-primary px-3 rounded-5' %>
   </div>
 <% end %>
