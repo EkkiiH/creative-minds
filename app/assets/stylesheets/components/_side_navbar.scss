@@ -9,7 +9,7 @@
 
 .openbtn {
   width: 52px;
-  margin-top: 20px;
+  margin-top: 8px;
   min-height: 5rem;
   font-size: 2.5rem;
   cursor: pointer;
@@ -19,27 +19,36 @@
   border: none;
   z-index: 1;
   border-radius: 0 12px 12px 0;
-  -webkit-box-shadow: 4px 4px 0 $red;
-  box-shadow: 4px 4px 0 $red;
+  -webkit-box-shadow: 4px 4px 0 $orange;
+  box-shadow: 4px 4px 0 $orange;
 }
 
 .openbtn:hover {
-  background: linear-gradient(90deg, $blue 5%, rgb(132, 208, 244) 100%);
+  // background: linear-gradient(90deg, $blue 5%, rgb(132, 208, 244) 100%);
   // color: $red;
 }
 
-.openbtn-after {
-  border-top: 4px solid $red;
-  width: 4px;
-}
+// .openbtn-after {
+//   border-top: 4px solid $red;
+//   width: 4px;
+// }
+.sidenavbarmain-inactive button{
+  -webkit-box-shadow: none;
+  box-shadow: none;
 
+}
 .sidenavbarmain-inactive i{
   transform: rotate(180deg);
+
 }
 
+.side-navbar {
+  margin: 0 2.6rem;
+}
 .side-navbar h3{
-    text-shadow: 0 0 3px rgba(0,0,0,0.6);
-    margin: 1.4rem 0;
+  text-shadow: 0 0 3px rgba(0,0,0,0.6);
+  margin: 1.4rem 0;
+  left: 40px;
 }
 
 #sidebar{
@@ -73,7 +82,10 @@
     border: none;
 }
 
-
+.side-container {
+  background-color: $white;
+  border-radius: 0 12px 12px 0;
+}
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
@@ -86,10 +98,14 @@
 }
 
 #sidebar {
-  min-width: 200px;
-  max-width: 210px;
+  // min-width: 200px;
+  // max-width: 210px;
+  width: 210px;
   color: $white;
   transition: all 0.3s;
+  position: absolute;
+  left: 0;
+  top: 90px;
 }
 
 #sidebar .whitetop {
@@ -111,17 +127,21 @@
   color: $white;
   padding: 0rem 1rem;
   border: none;
-  z-index: 0;
-  -webkit-box-shadow: 4px 4px 0 $red;
-  box-shadow: 4px 4px 0 $red;
+  z-index: 1;
+  width: 220px;
+  border-radius: 0 12px 12px 0;
+  -webkit-box-shadow: 4px 4px 0 $orange;
+  box-shadow: 4px 4px 0 $orange;
+
 }
 
 #sidebar ul.components {
   padding: 1.2rem 0;
-  border-top: 4px solid $red;
+  // border-top: 4px solid $red;
   background-color: $white;
   border-radius: 0 0 12px 0;
   padding-bottom: 2rem;
+  margin-top: 4px;
 }
 
 #sidebar ul p {

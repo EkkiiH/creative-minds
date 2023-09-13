@@ -1,1 +1,10 @@
 // Specific CSS for your home-page
+body {
+  background: rgb(3,169,244);
+  background: linear-gradient(45deg, rgba(3,169,244,1) 0%, rgba(171,71,188,1) 50%, rgba(245,150,82,1) 100%);
+}
+
+.container-fix {
+  width: 1480px !important;
+  max-width: 1480px !important;
+}

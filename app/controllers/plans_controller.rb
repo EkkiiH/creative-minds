@@ -22,7 +22,7 @@ class PlansController < ApplicationController
     authorize @plan
     @name_query = params[:name_query]
     if @plan.save
-      redirect_to plans_path(@plans)
+      params[:new_task].in?([true, "true"]) ? redirect_to(new_plan_task_path(@plan)) : redirect_to(plans_path(@plans))
     else
       render :new, status: :unprocessable_entity
     end
