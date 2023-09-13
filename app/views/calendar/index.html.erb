@@ -1,10 +1,17 @@
 <div class="container mt-5 text-center">
-<%= month_calendar(events: @tasks) do |date, events| %>
-      <%= date %>
-      <% events.each do |event| %>
+  <%= month_calendar(events: @tasks) do |date, tasks| %>
+    <%= date %>
+    <% tasks.each do |task| %>
       <div>
-        <%= event.activity %>
+        <% if task.plan.present? %>
+          <%= link_to task.activity, plan_path(task.plan) %>
+          <% if task.plan.name.present? %>
+            <p>from: "<%= task.plan.name %>"</p>
+          <% end %>
+        <% else %>
+          <%= task.activity %>
+        <% end %>
       </div>
-      <% end %>
     <% end %>
+  <% end %>
 </div>

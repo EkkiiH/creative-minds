@@ -12,6 +12,7 @@
 
   .calendar-title {
     font-size: 3em;
+    color: #25476a;
   }
 
   tr {
@@ -110,5 +111,6 @@
 
   .has-events {
     background: #f59652;
+    text-decoration: none;
   }
 }
