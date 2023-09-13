@@ -6,5 +6,13 @@ export default class extends Controller {
     new flatpickr(this.element, {
       // more options available on the documentation!
     });
+  //   enable: [
+  //     {
+  //         from: `${ @plan.start_date}`,
+  //         to: `${ @plan.end_date}`
+  //     }
+  // ]
   }
+
+
 }
