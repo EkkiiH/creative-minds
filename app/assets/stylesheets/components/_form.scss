@@ -37,46 +37,85 @@
 #task_priority_0 + label,
 #subtask_priority_0 + label {
   color: $blue;
+  box-shadow: 4px 4px 0 $blue;
 }
 
 #task_priority_0:checked + label,
 #subtask_priority_0:checked + label {
   background-color: $blue;
   border-color: $blue;
+  box-shadow: 4px 4px 0 $orange;
 }
 
 
 #task_priority_1 + label,
 #subtask_priority_1 + label {
   color: $orange;
+  box-shadow: 4px 4px 0 $orange;
 }
 
 #task_priority_1:checked + label,
 #subtask_priority_1:checked + label {
   background-color: $orange;
   border-color: $orange;
+  box-shadow: 4px 4px 0 $red;
 }
 
 
 #task_priority_2 + label,
 #subtask_priority_2 + label {
   color: $red;
+  box-shadow: 4px 4px 0 $red;
 }
 
 #task_priority_2:checked + label,
 #subtask_priority_2:checked + label {
   background-color: $red;
   border-color: $red;
+  box-shadow: 4px 4px 0 $blue;
 }
 
+.form-container {
+  margin: 2rem 33%;
+}
 
 .input-placeholder {
-  height: 60px;
+  min-height: 50px;
   border-radius: 12px;
+  color: $black;
   background-color: #EEF0F3;
   border: none;
   padding: 1.4rem;
   -webkit-box-shadow: inset 0 0 12px 0 rgba(0,0,0,0.1);
   box-shadow: inset 0 0 8px 0 rgba(0,0,0,0.1);
-  color: $dark-gray
+}
+
+.input-placeholder-nopad {
+  min-height: 50px;
+  border-radius: 12px;
+  color: $black;
+  background-color: #EEF0F3;
+  border: none;
+  padding-left: 1.4rem;
+  -webkit-box-shadow: inset 0 0 12px 0 rgba(0,0,0,0.1);
+  box-shadow: inset 0 0 8px 0 rgba(0,0,0,0.1);
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $black !important;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $black !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: $black !important;
+}
+
+
+.height-min {
+  height: 80% !important;
+
 }
