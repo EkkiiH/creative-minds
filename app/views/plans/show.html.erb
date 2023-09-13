@@ -10,9 +10,9 @@
 <%# </div> %> <%#%>
 
 <%# Details of current plan (@plan) %>
-<div class="container d-flex">
-  <div class="d-flex flex-row mt-3 mb-5 mx-3 white-background">
-    <div class="me-4">
+<div class="container container-fix d-flex">
+  <div class="d-flex flex-row mt-3 mb-5 mx-3 white-background w-100">
+    <div class="me-4" style="max-width: 820px;">
       <h1 class="mb-3 mb-3 title-h1"><%= @plan.name %></h1>
 
       <div class="d-flex align-items-center">
@@ -36,7 +36,7 @@
       </div>
 
 
-      <div class="d-flex flex-row justify-content-evenly mt-5">
+      <div class="d-flex flex-row justify-content-evenly mt-5" style="min-width:436px!important">
         <div>
           <h3 class="title-h3"><%= image_tag "arrow.svg", class: "arrow-h3" %>Goal</h3>
           <div class=" mt-3 ps-4"><h5 class="regular-deepblue">Started the</h5><p class="ms-3"><%= @plan.start_date.try(:strftime, "%d %B %Y") %></p></div>
@@ -51,13 +51,11 @@
             <% end %>
         </div>
       </div>
-
-
     </div>
 
 
 
-    <div class="vertical-grey ms-4 me-3 mt-5 ps-5">
+    <div class="vertical-grey ms-4 me-3 mt-5 ps-5" style="min-width:390px">
       <h3 class="title-h3 mb-5"><%= image_tag "arrow.svg", class: "arrow-h3" %>Next to-do</h3>
       <%= link_to new_plan_task_path(@plan), class: 'btn tasks d-flex align-items-between margin-left-42 align-items-center pb-4' do %>
         <%= image_tag "add.svg", class: "add-h3 me-3" %>

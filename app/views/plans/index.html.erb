@@ -1,4 +1,4 @@
-<div class="container d-flex">
+<div class="container container-fix d-flex">
   <div class="mt-3 mb-5 me-5 white-background">
   <h1 class="title-h1">All my plans</h1>
 
@@ -24,34 +24,36 @@
               </div>
 
               <div class="mx-3">
-                    <h3><%= link_to plan.name, plan_path(plan), class:'text-decoration-none text-dark'  %></h3>
-                    <div class="dropdown">
-                      <button id="dropdown-<%= plan.id %>" class="btn txt-darkgray dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-target="#dropdown-<%= plan.id %>" aria-expanded="false">
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                      </button>
-                      <ul class="dropdown-menu">
-                        <li>
-                          <%= link_to edit_plan_path(plan), data:{turbo: false}, class: 'btn text-warning' do %>
-                            <i class="fa-solid fa-pen-to-square"></i> edit plan
-                          <% end %>
-                        </li>
-                        <li>
-                          <%= link_to plan_path(plan),
-                                      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                                      class: 'btn text-danger' do %>
-                            <i class="fa-solid fa-xmark"></i> delete plan
-                          <% end %>
-                        </li>
-                      </ul>
+                    <div class="d-flex flex-row">
+                      <h3><%= link_to plan.name, plan_path(plan), class:'text-decoration-none text-dark'  %></h3>
+                      <div class="dropdown">
+                        <button id="dropdown-<%= plan.id %>" class="btn txt-darkgray dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-target="#dropdown-<%= plan.id %>" aria-expanded="false">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <%= link_to edit_plan_path(plan), data:{turbo: false}, class: 'btn text-warning' do %>
+                              <i class="fa-solid fa-pen-to-square"></i> edit plan
+                            <% end %>
+                          </li>
+                          <li>
+                            <%= link_to plan_path(plan),
+                                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                                        class: 'btn text-danger' do %>
+                              <i class="fa-solid fa-xmark"></i> delete plan
+                            <% end %>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                    <%= link_to edit_plan_path(plan), data:{turbo: false}, class: 'btn text-warning' do %>
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    <% end %>
-                    <%= link_to plan_path(plan),
-                                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                                  class: 'btn text-danger px-2' do %>
-                        <i class="fa-solid fa-xmark"></i>
-                    <% end %>
+                    <%# <%= link_to edit_plan_path(plan), data:{turbo: false}, class: 'btn text-warning' do %>
+                        <%# <i class="fa-solid fa-pen-to-square"></i> %>
+                    <%# <% end %> <%#%>
+                    <%# <%= link_to plan_path(plan), %>
+                                  <%# data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, %>
+                                  <%# class: 'btn text-danger px-2' do %>
+                        <%# <i class="fa-solid fa-xmark"></i> %>
+                    <%# <% end %> <%#%>
 
                 <div><%= plan.description %></div>
 
