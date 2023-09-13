@@ -16,9 +16,9 @@
 
       <div class="mx-3 white-background" style="min-height: 450px;">
         <h3 class="title-h3"><%= image_tag "arrow.svg", class: "arrow-h3" %>Your plans on going</h3>
-        <div class="d-flex flex-row flex-wrap ">
+        <div class="d-flex flex-row justify-content-between me-4">
           <% @plans[0..2].each do |plan| %>
-            <div class="my-3 px-3 text-center vertical-grey">
+            <div class="my-3 ps-5 text-center vertical-grey">
               <%= link_to(plan_path(plan), class:'text-decoration-none text-dark') do %>
                 <div class="m-3 d-flex flex-wrap">
                   <div class="progress-bar" data-controller="progress-bar" data-progress-bar-target="progress" data-progress-bar-plans-value="<%= plan.tasks.size %>" data-progress-bar-completedplans-value="<%= plan.tasks.select { |task| task.completion }.size %>">
@@ -39,7 +39,7 @@
 
 <%# ************  start todo list *********** %>
     <div class="col-4">
-      <div class="mt-3 ms-2 white-background" style="max-height:840px">
+      <div class="mt-3 ms-2 white-background" style="height:850px">
         <div>
           <h3 class="title-h3 mb-5"><%= image_tag "arrow.svg", class: "arrow-h3" %>Next to-do</h3>
 
@@ -48,7 +48,7 @@
             <div class=" me-3 new-task"></div>
           <bdi type="button" data-bs-toggle="collapse"  role="button" aria-expanded="false">new task</bdi>
           <% end %>
-          <% @tasks.order(:due_date)[0..5].each do |task|  %>
+          <% @tasks.where('tasks.completion = ?', false).order(:due_date).reverse[0..5].each do |task|  %>
             <% if task.completion == false %>
               <%= render 'tasks/task', task: task %>
             <% end %>

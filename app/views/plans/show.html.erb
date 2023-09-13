@@ -1,13 +1,13 @@
 <%# List of all plans %>
-<%# <div>
-  <% current_user.plans.each do |plan| %>
-    <%# <% if plan == @plan %> <%#%>
-      <%# <p class="btn btn-primary"><%= plan.name %><%#</p> %>
-    <%# <% else %> <%#%>
-      <%# <%= link_to plan.name, plan, class: 'btn' %><%# %>
-    <%# <% end %><%# %>
-  <%# <% end %> <%#%>
-<%# </div> %> <%#%>
+  <%# <div>
+    <% current_user.plans.each do |plan| %>
+      <%# <% if plan == @plan %> <%#%>
+        <%# <p class="btn btn-primary"><%= plan.name %><%#</p> %>
+      <%# <% else %> <%#%>
+        <%# <%= link_to plan.name, plan, class: 'btn' %><%# %>
+      <%# <% end %><%# %>
+    <%# <% end %> <%#%>
+  <%# </div> %> <%#%>
 
 <%# Details of current plan (@plan) %>
 <div class="container container-fix d-flex">
@@ -16,12 +16,12 @@
       <h1 class="mb-3 mb-3 title-h1"><%= @plan.name %></h1>
 
       <div class="d-flex align-items-center">
-        <%= link_to edit_plan_path(@plan), class: 'btn title-h3' do %>
-          <%= image_tag "add.svg", class: "add-h3 me-3" %>edit plan
+        <%= link_to edit_plan_path(@plan), class: 'btn ' do %>
+          <%= image_tag "add.svg", class: "add-h3 me-3 regular-deepblue" %>edit plan
         <% end %>
 
         <%= link_to plan_path(@plan), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn' do %>
-          <%= image_tag "delete.svg", class: "delete-p" %> delete plan
+          <%= image_tag "delete.svg", class: "delete-p regular-deepblue" %> delete plan
         <% end %>
       </div>
 
@@ -35,7 +35,6 @@
         </div>
       </div>
 
-
       <div class="d-flex flex-row justify-content-evenly mt-5" style="min-width:436px!important">
         <div>
           <h3 class="title-h3"><%= image_tag "arrow.svg", class: "arrow-h3" %>Goal</h3>
@@ -44,16 +43,13 @@
         </div>
         <div class="vertical-grey ms-4 me-3 ps-5">
           <h3 class="title-h3"><%= image_tag "arrow.svg", class: "arrow-h3" %>Important to-do</h3>
-            <% @plan.tasks.order(:due_date)[0..1].each do |task|  %>
-              <% if task.completion == false %>
-                <%= render 'tasks/task', task: task %>
+            <% @plan.tasks.where('tasks.completion = ?', false).order(:priority).reverse[0..1].each do |task|  %>
+                  <%= render 'tasks/task', task: task %>
               <% end %>
-            <% end %>
         </div>
       </div>
+      
     </div>
-
-
 
     <div class="vertical-grey ms-4 me-3 mt-5 ps-5" style="min-width:390px">
       <h3 class="title-h3 mb-5"><%= image_tag "arrow.svg", class: "arrow-h3" %>Next to-do</h3>
@@ -66,7 +62,6 @@
           <%= render 'tasks/task', task: task %>
       <% end %>
     </div>
-
 
   </div>
 </div>
