@@ -63,8 +63,10 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    @plan = @task.plan 
     authorize @task
   end
+
 
   def update
     @task = Task.find(params[:id])
@@ -91,7 +93,8 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to plans_path }
-      format.text { render partial: "task", task: @task, formats: [:html] }
+      # format.text { render partial: "task", task: @task, formats: [:html] }
+      format.turbo_stream
     end
 
   end

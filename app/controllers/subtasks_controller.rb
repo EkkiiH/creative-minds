@@ -8,10 +8,12 @@ class SubtasksController < ApplicationController
   def create
     @subtask = Subtask.new(subtask_params)
     @task = Task.find(params[:task_id])
+    @plan = @task.plan  # Fetch the associated plan for the task
     @subtask.task = @task
     authorize @subtask
+
     if @subtask.save
-      redirect_to plan_path(@subtask.task.plan)
+      redirect_to plan_path(@plan)
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +28,7 @@ class SubtasksController < ApplicationController
     @subtask = Subtask.find(params[:id])
     authorize @subtask
     if @subtask.update(subtask_params)
-      redirect_to plan_path(@subtask.task.plan)
+      redirect_to tasks_path
     else
       render :edit, status: :unprocessable_entity
     end

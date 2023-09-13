@@ -1,17 +1,24 @@
-<div class="container mt-5 text-center">
-  <%= month_calendar(events: @tasks) do |date, tasks| %>
-    <%= date %>
-    <% tasks.each do |task| %>
-      <div>
-        <% if task.plan.present? %>
-          <%= link_to task.activity, plan_path(task.plan) %>
-          <% if task.plan.name.present? %>
-            <p>from: "<%= task.plan.name %>"</p>
+<div class="container container-fix d-flex">
+  <div class="d-flex flex-column mt-3 mb-5 mx-3 white-background w-100 h-100">
+    <h1 class="mb-2  title-h1">Monthly</h1>
+    <div class="d-flex justify-content-center height-min ">
+      <div class=" text-center text-small text-decoration-none">
+        <%= month_calendar(events: @tasks) do |date, tasks| %>
+          <%= date %>
+          <% tasks.each do |task| %>
+            <div>
+              <% if task.plan.present? %>
+                <%= link_to task.activity, plan_path(task.plan) %>
+                <% if task.plan.name.present? %>
+                  <p>from: "<%= task.plan.name %>"</p>
+                <% end %>
+              <% else %>
+                <%= task.activity %>
+              <% end %>
+            </div>
           <% end %>
-        <% else %>
-          <%= task.activity %>
         <% end %>
       </div>
-    <% end %>
-  <% end %>
+    </div>
+  </div>
 </div>

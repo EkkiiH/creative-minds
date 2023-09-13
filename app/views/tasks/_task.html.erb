@@ -1,10 +1,13 @@
 <%# dom_id(task) => "task_1" %>
 <%# target: :_top means that requests inside this frame are not localized to this portion of page by default %>
 <%= turbo_frame_tag dom_id(task), target: :_top, class: "horizontal-grey pt-3 d-flex flex-row" do %>
+
+  <%= turbo_stream_from task %>
+
   <div class="d-flex flex-column" data-controller="tasks" data-action="dblclick->tasks#fire" data-id="<%= task.id %>">
     <div class="tasks d-flex align-items-center justify-content-between <%= 'done' if task.completion %>">
       <%= link_to toggle_complete_task_path(task),
-                  data: { turbo_method: :patch, turbo_frame: dom_id(task) }, class: 'btn' do %>
+                  data: { turbo_method: :patch }, class: 'btn' do %>
         <%# <i class="fa-regular fa-circle-check"></i> %>
         <div class="color-status me-3 task-<%= task.priority %> "></div>
       <% end %>
@@ -17,6 +20,8 @@
           <small><i class="fa-regular fa-calendar"></i> <%= task.due_date.try(:strftime, "%d/%m/%Y") %></small>
         </p>
       </div>
+
+
       <div class="dropdown">
         <button id="dropdown" class="btn txt-darkgray dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa-solid fa-ellipsis-vertical"></i>

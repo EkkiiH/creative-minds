@@ -1,0 +1,1 @@
+<%= turbo_stream.replace dom_id(@task), target: nil, targets: "##{dom_id(@task)}", partial: 'tasks/task', locals: { task: @task } %>

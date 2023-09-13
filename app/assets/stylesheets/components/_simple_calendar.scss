@@ -1,18 +1,22 @@
 .simple-calendar {
+
   table {
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
-    background-color: rgb(253, 253, 253);
-    border: 2px solid rgb(221, 221, 221);
+    background-color: $white;
+    border: none;
     border-collapse: collapse;
-    box-sizing: border-box;
+    box-sizing:content-box;
     max-width: 100%;
-    width: 100%;
+    width: 980px;
   }
-
+  thead {
+    height: 40px !important;
+  }
   .calendar-title {
-    font-size: 3em;
-    color: #25476a;
+    font-weight: 500;
+    font-size: 32px;
+    color: $deep-blue;
   }
 
   tr {
@@ -20,34 +24,41 @@
   }
 
   th {
-    padding: 6px;
-    border-bottom: 2px solid rgb(221, 221, 221);
-    border-collapse: collapse;
-    border-left: 1px solid rgb(221, 221, 221);
-    border-right: 1px solid rgb(221, 221, 221);
-    border-top: 0px none rgb(51, 51, 51);
+    padding: 12px;
+    height: 100px !important;
+    /* border-bottom: 2px solid #dddddd; */
+    /* border-collapse: collapse; */
+    /* border-left: 1px solid #dddddd; */
+    /* border-right: 1px solid #dddddd; */
+    /* border-top: 0px none #333333; */
     box-sizing: border-box;
     text-align: left;
   }
 
-  td {
-    padding: 6px;
-    vertical-align: top;
-    width: 14%;
+  tr:first-child> th{
+    height: 40px !important;
+  }
+  height: 100px !important;
 
-    border: 1px solid #ddd;
-    border-top-color: rgb(221, 221, 221);
+  td {
+    height: 100px !important;
+    padding: 12px;
+    vertical-align: top;
+    width: 100px !important;
+
+    // border: 1px solid #ddd;
+    border-top-color: $light-gray;
     border-top-style: solid;
     border-top-width: 1px;
-    border-right-color: rgb(221, 221, 221);
-    border-right-style: solid;
-    border-right-width: 1px;
-    border-bottom-color: rgb(221, 221, 221);
+    // border-right-color: rgb(221, 221, 221);
+    // border-right-style: solid;
+    // border-right-width: 1px;
+    border-bottom-color: $light-gray;
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    border-left-color: rgb(221, 221, 221);
-    border-left-style: solid;
-    border-left-width: 1px;
+    // border-left-color: rgb(221, 221, 221);
+    // border-left-style: solid;
+    // border-left-width: 1px;
   }
 
   .calendar-heading nav {
@@ -60,57 +71,80 @@
   }
 
   .day {
-    height: 80px;
+    height: 50px;
+    width: 50px;
   }
 
   .wday-0 {
-    background: #DDD;
+    background: $white;
   }
   .wday-1 {
-    background: #DDD;
+    background: $white;
   }
   .wday-2 {
-    background: #DDD;
+    background: $white;
   }
   .wday-3 {
-    background: #DDD;
+    background: $white;
   }
   .wday-4 {
-    background: #DDD;
+    background: $white;
   }
   .wday-5 {
-    background: #DDD;
+    background: $white;
   }
   .wday-6 {
-    background: #DDD;
+    background: $white;
   }
 
   .today {
-    background: #cbcb64
+    background: $blue;
+    color: $white;
+    font-weight: bold;
+  }
+
+  .today::after {
+    padding: 1rem auto;
+    font-size: 400;
+    font-weight: bold;
+    content: "today";
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .past {
-    background: #DDD;
+    background: $white;
   }
   .future {
-    background: #DDD;
+    background: $white;
   }
 
   .start-date {
-    background: #DDD;
+    background: $white;
   }
 
   .prev-month {
-    background: #DDD;
+    background: $light-gray;
   }
   .next-month {
-    background: #DDD;
+    background: $light-gray;
   }
-  .current-month {background: #DDD;
+  .current-month {
+    background: $white;
   }
 
   .has-events {
-    background: #f59652;
+    background: $orange;
     text-decoration: none;
+    color: $white;
+    font-weight: 400;
+    font-size: small;
   }
+  .has-events a{
+    text-decoration: none;
+    color: $white;
+    // font-size: initial;
+    font-weight: bold;
+  }
+
 }
