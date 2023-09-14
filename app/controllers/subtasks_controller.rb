@@ -28,7 +28,7 @@ class SubtasksController < ApplicationController
     @subtask = Subtask.find(params[:id])
     authorize @subtask
     if @subtask.update(subtask_params)
-      redirect_to tasks_path
+      redirect_to plan_path(@subtask.plan)
     else
       render :edit, status: :unprocessable_entity
     end

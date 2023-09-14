@@ -10,8 +10,10 @@ class Task < ApplicationRecord
   validate :date_range
 
   def date_range
-    unless (plan.start_date..plan.end_date).include?(due_date)
-      errors.add(:due_date, 'must be within the start and end date of plan')
+    if self.plan.start_date
+      unless (plan.start_date..plan.end_date).include?(due_date)
+        errors.add(:due_date, 'must be within the start and end date of plan')
+      end
     end
   end
 

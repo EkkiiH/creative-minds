@@ -1,4 +1,4 @@
-<%= simple_form_for [@plan, @task] do |f| %>
+<%= simple_form_for @task do |f| %>
 <%= f.input :activity, label: false, placeholder: "What is the task", input_html: { class: 'input-placeholder'} %>
   <%= f.input :priority,
       as: :radio_buttons,
