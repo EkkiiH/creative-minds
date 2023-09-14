@@ -48,7 +48,6 @@
             <div class=" me-3 new-task"></div>
           <bdi type="button" data-bs-toggle="collapse"  role="button" aria-expanded="false">new task</bdi>
           <% end %>
-TESTING
 
           <% @tasks.where('tasks.completion = ?', false).order(:due_date).reverse[0..5].each do |task|  %>
             <% if task.completion == false %>
