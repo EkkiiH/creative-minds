@@ -22,26 +22,6 @@ class TasksController < ApplicationController
     # find plan
     # initialize new task
   end
-
-  def new_without_plan
-    @task = Task.new
-    # @plan = Plan.find(params[:plan_id])
-    authorize @task
-    # find plan
-    # initialize new task
-  end
-
-  def create_without_plan
-    @task = Task.new(task_without_plan_params)
-    @task.user = current_user
-    authorize @task
-    if @task.save
-      redirect_to plan_path(@task.plan)
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
   # POST /plans/:plan_id/tasks
   def create
     @task = Task.new(task_params)
@@ -61,9 +41,30 @@ class TasksController < ApplicationController
     # -> redirect or render new page again
   end
 
+  def new_without_plan
+    @task = Task.new
+    # @plan = Plan.find(params[:plan_id])
+    authorize @task
+    # find plan
+    # initialize new task
+  end
+
+  def create_without_plan
+    @task = Task.new(task_without_plan_params)
+    @task.user = current_user
+    # raise
+    authorize @task
+    if @task.save
+      redirect_to plan_path(@task.plan)
+    else
+      render :new_without_plan, status: :unprocessable_entity
+    end
+  end
+
+
   def edit
     @task = Task.find(params[:id])
-    @plan = @task.plan 
+    @plan = @task.plan
     authorize @task
   end
 
