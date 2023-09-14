@@ -1,0 +1,11 @@
+# config/meta.yml
+
+meta_product_name: "Creative Minds"
+
+meta_title: "Creative Minds - Unlock Your Creative Potential, One Organized Task at a Time"
+
+meta_description: "Creative Minds is your digital haven for streamlined planning and task management. Unleash your creativity and take control of your projects with intuitive tools designed to simplify your life. From brainstorming brilliant ideas to organizing your daily tasks, we're here to empower your creative journey. Join us and transform your plans into reality with ease and efficiency."
+
+meta_image: "cover.png" # should exist in `app/assets/images/`
+
+twitter_account: "@product_twitter_account" # required for Twitter Cards
