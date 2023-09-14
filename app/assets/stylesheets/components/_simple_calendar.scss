@@ -3,20 +3,34 @@
   table {
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
-    background-color: $white;
+    background-color: $white !important;
     border: none;
+    margin-top: 2rem ;
+    padding: 0;
     border-collapse: collapse;
     box-sizing:content-box;
     max-width: 100%;
-    width: 980px;
+    width: 1200px;
   }
   thead {
     height: 40px !important;
   }
+  thead:first-child {
+    background-color: $white;
+  }
+
   .calendar-title {
-    font-weight: 500;
-    font-size: 32px;
-    color: $deep-blue;
+    font-family: $headers-font;
+    display: inline-block;
+    font-size: 48px;
+    font-weight: 900 !important;
+    color: $blue;
+    background-image:
+    -webkit-linear-gradient(0deg, $blue 10%, $red 90%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
   }
 
   tr {
@@ -25,7 +39,7 @@
 
   th {
     padding: 12px;
-    height: 100px !important;
+    height: 140px !important;
     /* border-bottom: 2px solid #dddddd; */
     /* border-collapse: collapse; */
     /* border-left: 1px solid #dddddd; */
@@ -37,14 +51,14 @@
 
   tr:first-child> th{
     height: 40px !important;
+  background-color: $white !important;
   }
-  height: 100px !important;
 
   td {
-    height: 100px !important;
+    height: 140px !important;
     padding: 12px;
     vertical-align: top;
-    width: 100px !important;
+    min-width: 120px !important;
 
     // border: 1px solid #ddd;
     border-top-color: $light-gray;
@@ -59,6 +73,7 @@
     // border-left-color: rgb(221, 221, 221);
     // border-left-style: solid;
     // border-left-width: 1px;
+
   }
 
   .calendar-heading nav {
@@ -101,15 +116,22 @@
     background: $blue;
     color: $white;
     font-weight: bold;
+    text-decoration: none;
+  }
+  .today a{
+    color: $white;
+    font-weight: bold;
+    text-decoration: none;
   }
 
   .today::after {
-    padding: 1rem auto;
-    font-size: 400;
+
+    content: "\A TODAY";
+
+    white-space: pre;
+    color: $white;
+    text-align: center;
     font-weight: bold;
-    content: "today";
-    display: flex;
-    flex-wrap: wrap;
   }
 
   .past {

@@ -1,14 +1,14 @@
 <div class="simple-calendar">
-  <div class="calendar-heading">
-    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-  </div>
   <div>
+  <div class="calendar-headin d-flex align-items-center justify-content-evenly">
     <%= link_to(calendar.url_for_previous_view) do %>
         <%= image_tag('back.svg', alt: 'back', size: "40") %>
     <% end %>
+    <span class="calendar-title px-3"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
     <%= link_to(calendar.url_for_next_view) do %>
         <%= image_tag('foward.svg', alt: 'forward', size: "40") %>
     <% end %>
+  </div>
   </div>
 
   <table class="table table-striped">
@@ -29,7 +29,7 @@
                 <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
                   <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
                 <% else %>
-                  <% passed_block.call day.strftime('%d/%m/%y'), sorted_events.fetch(day, []) %>
+                  <% passed_block.call day.strftime('%d %b'), sorted_events.fetch(day, []) %>
                 <% end %>
               <% end %>
             <% else %>
@@ -37,7 +37,7 @@
                 <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
                   <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
                 <% else %>
-                  <% passed_block.call day.strftime('%d/%m/%y'), sorted_events.fetch(day, []) %>
+                  <% passed_block.call day.strftime('%d %b'), sorted_events.fetch(day, []) %>
                 <% end %>
               <% end %>
             <% end %>
