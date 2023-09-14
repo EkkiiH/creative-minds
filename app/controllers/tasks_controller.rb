@@ -63,7 +63,7 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
-    @plan = @task.plan 
+    @plan = @task.plan
     authorize @task
   end
 
