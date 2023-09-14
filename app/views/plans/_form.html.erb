@@ -1,5 +1,5 @@
-<%= simple_form_for @plan, class: 'form',data:{controller: "popup", action: "submit->popup#create"} do |f| %>
-  <%= f.input :name, label: false, placeholder: "What is your plan?", input_html: {  class: 'input-placeholder'} %>
+<%= simple_form_for @plan, class: 'form', data:{controller: "popup", action: "submit->popup#create"} do |f| %>
+  <%= f.input :name, label: false, placeholder: "What is your plan?", input_html: {  class: 'input-placeholder fw-bold'} %>
   <%= f.input :description, label: false, placeholder: "Describe it briefly", input_html: { class: 'input-placeholder', rows: 4, cols:  6} %>
   <%= f.input :start_date, as: :string, label: 'Pick a starting date:', input_html: { class: 'input-placeholder', data: { controller: "datepicker" } } %>
   <%= f.input :end_date, as: :string, label: 'And your goal date:', input_html: { class: 'input-placeholder', id: "end_date"} %>

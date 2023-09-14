@@ -1,5 +1,5 @@
 <%= simple_form_for @task do |f| %>
-<%= f.input :activity, label: false, placeholder: "What is the task", input_html: { class: 'input-placeholder'} %>
+<%= f.input :activity, label: false, placeholder: "What is the task?", input_html: { class: 'fw-bold input-placeholder'} %>
   <%= f.input :priority,
       as: :radio_buttons,
       collection_wrapper_tag: 'div',
