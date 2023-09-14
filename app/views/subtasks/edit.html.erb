@@ -1,8 +1,9 @@
 <div class="container container-fix d-flex">
   <div class="mt-3 mb-5 mx-3 white-background d-flex w-100 flex-column height-min">
-  <h1 class="title-h1">Change your sub for <br> <bdi class="ms-5"><%= @subtask.activity.camelize(:lower) %></bdi></h1>
-
-  <div class="form-container">
-    <%= render 'form_edit' %>
+    <h1 class="title-h1 text-center">Changes for</h1>
+    <h3 class="title-h3 text-center mb-5"><%= @subtask.activity.camelize(:lower) %></h3>
+    <div class="form-container pt-5">
+      <%= render 'form_edit' %>
+    </div>
   </div>
 </div>
